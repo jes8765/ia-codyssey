@@ -21,7 +21,7 @@
 | 미디어 타입 | 메인 도구 | 선택 이유 (강점) | 대체 도구 (접근성 대비) |
 | :--- | :--- | :--- | :--- |
 | **이미지** | Midjourney (v6) | 고품질 3D 애니메이션 질감 및 화풍 제어 탁월 | DALL-E 3, Adobe Firefly |
-| **비디오** | Runway (Gen-3) | 이미지 기반 모션 변환(Img-to-Video)의 높은 물리적 자연스러움 | Luma Dream Machine, Kling AI |
+| **비디오** | Hailuo AI (MiniMax) | Image-to-Video 기능을 활용하여 정적인 이미지를 자연스러운 애니메이션 장면으로 변환하고, 캐릭터와 배경의 움직임을 효과적으로 구현할 수 있음 | Kling AI, PixVerse |
 | **오디오** | Suno AI / ElevenLabs | 감성적인 배경음악 생성 및 정교한 효과음(SFX) 합성 강점 | Udio, Typecast |
 
 > **일관성(Style/Character) 유지 전략:**
