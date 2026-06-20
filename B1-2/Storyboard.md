@@ -38,7 +38,7 @@
 * **내레이션 / 카피:** (내레이션) "모두가 잠든 밤, 진짜 모험이 시작됩니다."
 * **사용 도구 및 목적:** 
   * 이미지: Midjourney (오프닝 키 비주얼 생성)
-  * 비디오: Runway (문이 닫히고 실루엣이 움직이는 부드러운 모션 부여)
+  * 비디오: Hailuo AI (문이 닫히고 실루엣이 움직이는 부드러운 모션 부여)
   * 오디오: Suno AI (잔잔하고 아늑한 자장가풍의 피아노 선율 레이어링)
 * **입력 프롬프트 (원문):**
   > `A cinematic 3D Pixar-style animation, an 8-year-old Korean boy with short dark hair wearing yellow pajamas is lying in bed, eyes closed, pretending to sleep. A bedroom door is slowly closing, showing a soft warm light from the hallway and the blurred silhouette of parents leaving. Cozy and dark bedroom atmosphere, moonlight filtering through the window, highly detailed, 8k, photorealistic textures --ar 16:9`
@@ -54,7 +54,7 @@
 * **내레이션 / 카피:** (내레이션) "머릿속에 숨겨둔 비밀 스케치북."
 * **사용 도구 및 목적:**
   * 이미지: Midjourney (스탠드 조명이 켜지는 순간의 극적 연출)
-  * 비디오: Runway (아이가 눈을 뜨고 스탠드를 켜는 연출 제어)
+  * 비디오: Hailuo AI (아이가 눈을 뜨고 스탠드를 켜는 연출 제어)
   * 오디오: ElevenLabs (스탠드 스위치 켜지는 '딸칵' 효과음 삽입)
 * **입력 프롬프트 (원문):**
   > `A cinematic 3D Pixar-style animation, the 8-year-old Korean boy with short dark hair and yellow pajamas excitedly opens his eyes in the dark. He sits up and turns on a small yellow bedside lamp. The warm light illuminates a thick sketchbook and colorful crayons on the wooden nightstand. He has a mischievous and excited smile, highly detailed, vivid colors, 8k --ar 16:9`
@@ -70,7 +70,7 @@
 * **내레이션 / 카피:** (내레이션) "그려둔 상상이 깨어날 시간."
 * **사용 도구 및 목적:**
   * 이미지: Midjourney (크레용 마감 질감과 신비로운 stardust 이펙트 구현)
-  * 비디오: Runway (정지된 크레용 그림에서 반짝이는 먼지들이 뿜어져 나오는 카메라 무브먼트 연출)
+  * 비디오: Hailuo AI (정지된 크레용 그림에서 반짝이는 먼지들이 뿜어져 나오는 카메라 무브먼트 연출)
   * 오디오: ElevenLabs (지잉- 하는 신비로운 마법 상승 효과음)
 * **입력 프롬프트 (원문):**
   > `A cinematic 3D Pixar-style animation, extreme close-up of a sketchbook page. A cute cosmic whale is drawn with blue and purple crayons on textured white paper. The drawing slowly begins to glow with faint magical stardust and pastel-colored glittering particles floating up from the paper, shallow depth of field, magical atmosphere, 8k --ar 16:9`
@@ -86,7 +86,7 @@
 * **내레이션 / 카피:** (내레이션) "방구석 작은 은하계가 눈앞에 펼쳐집니다."
 * **사용 도구 및 목적:**
   * 이미지: Midjourney (야광 스티커 테마의 우주 방과 생동감 넘치는 고래 구현)
-  * 비디오: Runway (고래가 방 안을 크게 회전하며 날아다니는 다이내믹 모션 구현)
+  * 비디오: Hailuo AI (고래가 방 안을 크게 회전하며 날아다니는 다이내믹 모션 구현)
   * 오디오: Suno AI (음악이 오케스트라풍의 웅장하고 환상적인 분위기로 고조됨)
 * **입력 프롬프트 (원문):**
   > `A cinematic 3D Pixar-style animation, a magical cosmic whale glowing in blue and purple neon tones flies out of the sketchbook into the air. The entire bedroom walls and ceiling transform, glowing vividly like cosmic glow-in-the-dark stickers, covered in mini planets and constellations. The 8-year-old Korean boy in yellow pajamas sits on his bed, looking up with wide eyes and open mouth in pure amazement, breathtaking cinematic lighting, 8k --ar 16:9`
@@ -102,7 +102,7 @@
 * **내레이션 / 카피:** (화면 자막 & 내레이션) "네가 그리는 모든 상상, 레고가 현실로 만듭니다."
 * **사용 도구 및 목적:**
   * 이미지: Midjourney (실제 플라스틱 레고 브릭 질감의 고래 피규어와 아이 손 매칭)
-  * 비디오: Runway (빛의 폭발과 함께 블록들이 맞물려 조립되는 모프/트랜지션 효과 연출)
+  * 비디오: Hailuo AI (빛의 폭발과 함께 블록들이 맞물려 조립되는 모프/트랜지션 효과 연출)
   * 오디오: ElevenLabs (레고 브릭들이 연속으로 착착착- 달칵! 조립되는 시그니처 사운드 효과음)
 * **입력 프롬프트 (원문):**
   > `A cinematic 3D Pixar-style animation, the glowing cosmic whale gently lands on the open hands of the 8-year-old Korean boy. At the moment of contact, a burst of magical light occurs, and the whale transforms with snapping plastic block textures into a highly detailed LEGO spaceship whale figure. Studio lighting on the hand-held LEGO object, vivid details, 8k --ar 16:9`
@@ -113,12 +113,12 @@
 
 ### 🎬 씬 6 (엔딩 및 CTA)
 * **씬 길이:** 6초
-* **목표 메시지:** "Rebuild the World. LEGO" (브랜드 각인)
+* **목표 메시지:** "Imagine Anyting. LEGO" (브랜드 각인)
 * **화면 구성:** 방 안의 야광 은하수 효과가 서서히 걷히고 원래의 아늑한 밤의 방으로 돌아옴. 아이는 완성된 레고 고래 피규어를 품에 꼭 껴안고 침대에 누워 행복하게 미소 짓고 있음. 마지막 3초간 화면 중심에 **LEGO 공식 로고**와 슬로건이 페이드인되며 마무리. (텍스트 유: 로고 및 슬로건)
-* **내레이션 / 카피:** (내레이션) "Rebuild the World. LEGO."
+* **내레이션 / 카피:** (내레이션) "Imagine Anyting. LEGO."
 * **사용 도구 및 목적:**
   * 이미지: Midjourney (평온하고 행복한 엔딩 키 비주얼 확보)
-  * 비디오: Runway (은은한 카메라 아웃포커싱 및 페이드아웃 처리)
+  * 비디오: Hailuo AI (은은한 카메라 아웃포커싱 및 페이드아웃 처리)
   * 오디오: Suno AI (음악이 잔잔하게 페이드아웃되며 레고 특유의 브랜딩 사운드로 마무리)
 * **입력 프롬프트 (원문):**
   > `A cinematic 3D Pixar-style animation, the 8-year-old Korean boy with short dark hair is lying back in his cozy bed, hugging the completed LEGO whale toy tightly to his chest. He has a peaceful and happy smile on his face. The bedroom is back to its quiet nighttime state with soft moonlight. Clean and heartwarming ending, 8k --ar 16:9`
