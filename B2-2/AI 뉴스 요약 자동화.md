@@ -236,23 +236,17 @@ Notion 실패
 
 ```
 Scheduler
-        │
-        ▼
+      ↓
 RSS Feed
-        │
-        ▼
+      ↓
 AI 키워드 필터
-        │
-        ▼
-최신 기사 선택
-        │
-        ▼
+      ↓
+Notion 중복 검사(URL)
+      ↓
+없으면
+      ↓
 OpenAI 요약
-        │
-        ▼
-중복 검사
-        │
-        ▼
+      ↓
 Notion 저장
 ```
 
