@@ -235,19 +235,13 @@ Notion 실패
 # 최종 워크플로우
 
 ```
-Scheduler
+RSS
       ↓
-RSS Feed
+Filter
       ↓
-AI 키워드 필터
+OpenAI
       ↓
-Notion 중복 검사(URL)
-      ↓
-없으면
-      ↓
-OpenAI 요약
-      ↓
-Notion 저장
+Notion
 ```
 
 ---
