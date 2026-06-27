@@ -61,7 +61,6 @@ RSS에서 다음 정보를 가져온다.
 * 발행일(Published Date)
 * 기사 본문(Description)
 
-**[이미지 2. RSS 모듈 설정 화면]**
 
 ---
 
@@ -83,7 +82,7 @@ RSS에는 AI 외에도 다양한 기술 뉴스가 포함되므로 Filter 기능�
 
 제목 또는 기사 본문에 위 키워드가 포함된 기사만 다음 단계로 전달한다.
 
-**[이미지 3. Filter 설정 화면]**
+
 
 ---
 
@@ -104,7 +103,7 @@ RSS에는 AI 외에도 다양한 기술 뉴스가 포함되므로 Filter 기능�
 
 생성된 요약은 이후 Notion 데이터베이스에 저장된다.
 
-**[이미지 4. HTTP(OpenRouter) 설정 화면]**
+![HTTP 설정](HTTP.png)
 
 ---
 
@@ -122,9 +121,7 @@ RSS에는 AI 외에도 다양한 기술 뉴스가 포함되므로 Filter 기능�
 | Published | 기사 발행일     |
 | Source    | TechCrunch |
 
-**[이미지 5. Notion Database 속성]**
-
-**[이미지 6. 저장 결과 화면]**
+![노션](Notion.png)
 
 ---
 
@@ -138,7 +135,7 @@ Scheduler를 이용하여 매일 오전 9시에 자동 실행되도록 설정하
 
 사람의 개입 없이 RSS 수집부터 AI 요약, Notion 저장까지 자동으로 수행된다.
 
-**[이미지 7. Scheduler 설정 화면]**
+![스케쥴링](Schedule.png)
 
 ---
 
