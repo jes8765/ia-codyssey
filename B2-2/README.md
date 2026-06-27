@@ -192,6 +192,8 @@ TechCrunch RSS는 AI뿐 아니라 스타트업, 모바일, 반도체, 보안 등
 | Scheduler 자동 실행  | 성공 |
 | Error Handler 동작 | 성공 |
 
+![결과](Fin.png)
+
 ---
 
 ## 10. 프로젝트 결과
