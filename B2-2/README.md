@@ -1013,7 +1013,7 @@ RSS에서 전달된 기사 제목과 본문은 HTTP 모듈을 통해 DeepSeek �
 ### 📷 이미지 삽입
 
 
-![Notion 저장 결과](News.png)
+![Notion 저장 결과](Images/News.png)
 
 
 Notion 데이터베이스를 확인한 결과 각 속성이 올바르게 매핑되어 저장되는 것을 확인하였다.
