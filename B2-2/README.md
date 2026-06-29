@@ -132,9 +132,9 @@ Data Store 업데이트
 
 ### 📷 이미지 삽입
 
-```markdown
+
 ![전체 Make 워크플로우](Images/Make.png)
-```
+
 
 ---
 
@@ -257,9 +257,9 @@ Key가 존재하지 않는 경우에만 다음 단계가 실행되도록 설계�
 
 ### 📷 이미지 삽입
 
-```markdown
+
 ![Data Store](Images/datastore.png)
-```
+
 # 4. 구현 과정에서 발생한 문제 및 해결
 
 프로젝트를 진행하면서 가장 어려웠던 부분은 단순히 RSS와 Notion을 연결하는 것이 아니라, **실제 운영 가능한 자동화 시스템을 구현하는 과정**이었다.
@@ -366,9 +366,9 @@ Bearer
 
 ### 📷 이미지 삽입
 
-```markdown
+
 ![HTTP 설정](Images/HTTP.png)
-```
+
 
 이후 HTTP 요청이 정상적으로 수행되었으며 DeepSeek가 뉴스 내용을 요약하여 응답하는 것을 확인하였다.
 
@@ -448,9 +448,9 @@ Data Store Update
 
 ### 📷 이미지 삽입
 
-```markdown
+
 ![전체 Make 워크플로우](Images/Make.png)
-```
+
 
 Data Store에서는
 
@@ -474,9 +474,9 @@ Does not exist
 
 ### 📷 이미지 삽입
 
-```markdown
+
 ![Filter 설정](Images/filter.png)
-```
+
 
 이 구조를 적용한 이후
 
@@ -500,9 +500,9 @@ Notion 저장이 성공하면 마지막 단계에서 Data Store에 해당 GUID�
 
 ### 📷 이미지 삽입
 
-```markdown
+
 ![Data Store](Images/datastore.png)
-```
+
 
 이를 통해 동일 기사는 다음 실행부터 자동으로 제외되었으며 AI API도 한 번만 호출되도록 개선하였다.
 
@@ -1012,9 +1012,9 @@ RSS에서 전달된 기사 제목과 본문은 HTTP 모듈을 통해 DeepSeek �
 
 ### 📷 이미지 삽입
 
-```markdown
+
 ![Notion 저장 결과](News.png)
-```
+
 
 Notion 데이터베이스를 확인한 결과 각 속성이 올바르게 매핑되어 저장되는 것을 확인하였다.
 
