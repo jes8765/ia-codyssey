@@ -248,5 +248,130 @@ CapCut에서는 생성형 AI 결과물을 수정하지 않고 **통합 편집**�
 
 제작 과정에서는 캐릭터와 화풍의 일관성 유지, 영상 생성 크레딧 관리, 장면 간 자연스러운 연결과 같은 실제 제작 환경에서 발생할 수 있는 문제를 고려하고 해결 전략을 적용하였다.
 
-이를 통해 생성형 AI를 활용한 브랜드 광고 제작 과정을 체계적으로 경험하고, 기획부터 최종 영상 편집까지 하나의 완성된 AI 기반 광고 패키지를 제작하였다.
+이를 통해생성형 AI를 활용한 브랜드 광고 제작 과정을 체계적으로 경험하고, 기획부터 최종 영상 편집까지 하나의 완성된 AI 기반 광고 패키지를 제작하였다.
 
+# 4. 프롬프트 수정 이력 (Prompt Improvement Log)
+
+## 📌 씬 1 (Intro)
+
+### 수정 전 프롬프트
+
+```text
+A child sleeping in bed, parents leaving the room, Pixar style.
+```
+
+### 문제점
+
+* 부모의 실루엣이 명확하게 표현되지 않음.
+* 침실 분위기가 지나치게 밝게 생성됨.
+* LEGO 브랜드 특유의 따뜻한 감성이 부족함.
+
+### 수정 내용
+
+* `warm hallway light`
+* `blurred silhouette of parents`
+* `moonlight filtering through the window`
+* `cozy bedroom atmosphere`
+
+등의 키워드를 추가하여 조명과 감성적인 분위기를 강화하였다.
+
+### 결과
+
+부모가 조용히 문을 닫고 나가는 장면과 아이의 침실 분위기가 자연스럽게 표현되었으며, 광고의 도입부로 적합한 따뜻한 장면을 구현할 수 있었다.
+
+---
+
+## 📌 씬 3 (Magic Transition)
+
+### 수정 전 프롬프트
+
+```text
+A cosmic whale drawing glowing in a sketchbook.
+```
+
+### 문제점
+
+* 고래가 단순히 빛나는 그림처럼 표현되었으며,
+* 평면 그림에서 현실로 이어지는 느낌이 부족하였다.
+* 종이의 질감과 크레용 특유의 표현이 잘 나타나지 않았다.
+
+### 수정 내용
+
+다음과 같은 키워드를 추가하였다.
+
+* `extreme close-up`
+* `textured white paper`
+* `blue and purple crayons`
+* `pastel glitter particles`
+* `magical stardust`
+* `shallow depth of field`
+
+### 결과
+
+스케치북 속 그림이 살아나는 듯한 연출이 강화되었고, 다음 장면으로 자연스럽게 이어지는 판타지 분위기를 표현할 수 있었다.
+
+---
+
+## 📌 씬 4 (Highlight)
+
+### 수정 전 프롬프트
+
+```text
+A cosmic whale flying in the kid's bedroom, 3D animation, fantasy.
+```
+
+### 문제점
+
+* 방이 실제 우주 공간처럼 생성되어 아이 방이라는 설정이 약해졌다.
+* 캐릭터보다 배경이 강조되어 브랜드 메시지가 흐려졌다.
+* 따뜻한 Pixar 스타일보다 SF 분위기가 강하게 표현되었다.
+
+### 수정 내용
+
+다음 요소를 추가하였다.
+
+* `glow-in-the-dark stickers`
+* `mini planets`
+* `constellations`
+* `looking up with wide eyes and open mouth`
+* `cinematic 3D Pixar-style animation`
+
+### 결과
+
+아이의 상상력이 방 안에서 펼쳐지는 장면으로 자연스럽게 표현되었으며, LEGO 브랜드가 전달하고자 하는 창의성과 동심을 효과적으로 강조할 수 있었다.
+
+---
+
+## 📌 영상 생성(Image-to-Video) 프롬프트 개선
+
+### 수정 전 프롬프트
+
+```text
+Animate the image naturally.
+```
+
+### 문제점
+
+* 캐릭터의 얼굴과 의상이 장면마다 조금씩 달라지는 현상이 발생하였다.
+* 고래의 색상과 형태가 일관되지 않았다.
+* 카메라 움직임이 과도하여 광고의 안정감이 떨어졌다.
+
+### 수정 내용
+
+모든 영상 생성 프롬프트 마지막에 다음과 같은 지시문을 추가하였다.
+
+```text
+Maintain the exact same child, bedroom, whale design, LEGO whale model, color palette, lighting style, and character proportions throughout the transition.
+```
+
+또한 카메라 움직임을
+
+* `slow cinematic camera movement`
+* `smooth transition`
+* `natural character motion`
+
+위주로 수정하였다.
+
+### 결과
+
+씬 간 캐릭터와 배경의 일관성이 향상되었으며, 하나의 연속된 3D 애니메이션처럼 자연스러운 영상 결과를 얻을 수 있었다.
