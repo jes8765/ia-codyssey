@@ -57,11 +57,79 @@ class PromptManager:
 
     # 프롬프트 추가
     def add_prompt(self):
-        pass
+
+        print("\n===== 프롬프트 추가 =====")
+
+        while True:
+            title = input("제목 : ").strip()
+
+            if title:
+                break
+
+            print("제목은 비워둘 수 없습니다.")
+
+        while True:
+            content = input("내용 : ").strip()
+
+            if content:
+                break
+    
+            print("내용은 비워둘 수 없습니다.")
+
+        categories = [
+            "텍스트 생성",
+            "이미지 생성",
+            "영상 생성",
+            "페르소나",
+            "자동화",
+            "기타"
+        ]
+
+        print("\n카테고리")
+
+        for i, category in enumerate(categories, start=1):
+            print(f"{i}. {category}")
+
+        choice = input("번호 선택 (직접 입력은 Enter) : ").strip()
+
+        if choice.isdigit():
+
+            index = int(choice) - 1
+
+            if 0 <= index < len(categories):
+                category = categories[index]
+            else:
+                category = input("카테고리 직접 입력 : ")
+
+        else:
+
+            category = input("카테고리 직접 입력 : ")
+
+        new_prompt = Prompt(
+            title,
+            content,
+            category
+        )
+
+        self.prompts.append(new_prompt)
+
+        print("\n프롬프트가 추가되었습니다.")
+
 
     # 프롬프트 목록
     def show_prompt_list(self):
-        pass
+
+        print("\n===== 프롬프트 목록 =====")
+
+        if not self.prompts:
+            print("등록된 프롬프트가 없습니다.")
+            return
+
+        for i, prompt in enumerate(self.prompts, start=1):
+            print(f"{i}. ", end="")
+            prompt.print_list()
+
+        print(f"\n총 {len(self.prompts)}개의 프롬프트")
 
     # 카테고리 조회
     def show_by_category(self):
@@ -114,10 +182,10 @@ class PromptApp:
             choice = input("선택 : ")
 
             if choice == "1":
-                print("프롬프트 추가 기능 구현 예정")
+                self.manager.add_prompt()
 
             elif choice == "2":
-                print("프롬프트 목록 기능 구현 예정")
+                self.manager.show_prompt_list()
 
             elif choice == "3":
                 print("카테고리 조회 기능 구현 예정")
@@ -145,3 +213,4 @@ class PromptApp:
 # ---------------- 프로그램 시작 ----------------
 app = PromptApp()
 app.run()
+
