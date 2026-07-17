@@ -202,6 +202,19 @@ PromptManager
 - 즐겨찾기 목록
 - git log --oneline --graph
 
+*   8ac2134 (HEAD -> main) Merge branch 'prompt-list'
+|\
+| * 6d213ab (prompt-list) 프롬프트 목록 기능 개선
+|/
+* 116dda7 즐겨찾기 목록 기능 구현
+* 1b520e4 즐겨찾기 기능 구현
+* 224c360 프롬프트 상세 조회 기능 구현
+* bb784b5 카테고리 조회 기능 구현
+* 48bb58d 프롬프트 추가 기능 구현
+* 27686fd 클래스 추가
+* 18055dd 기본 프롬프트 데이터 추가
+* 169b3dd 프로젝트 구조 설계
+
 ---
 
 # 학습 내용
