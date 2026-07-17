@@ -152,10 +152,7 @@ python sorting_prompt.py
 ```
 PromptManager
 │
-├── main.py
-├── prompt.py
-├── prompt_manager.py
-├── prompt_app.py
+├── sorting_prompt.py
 ├── README.md
 └── .gitignore
 ```
