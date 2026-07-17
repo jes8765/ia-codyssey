@@ -178,11 +178,58 @@ class PromptManager:
             print(f"\n총 {count}개의 프롬프트")
     # 검색
     def search_prompt(self):
-        pass
+
+        keyword = input("\n검색어 입력 : ").strip()
+
+        if keyword == "":
+            print("검색어를 입력해주세요.")
+            return
+
+        print("\n===== 검색 결과 =====")
+
+        count = 0
+
+        for prompt in self.prompts:
+
+            if keyword.lower() in prompt.title.lower() or \
+               keyword.lower() in prompt.content.lower():
+
+                count += 1
+                print(f"{count}. ", end="")
+                prompt.print_list()
+
+        if count == 0:
+            print("검색 결과가 없습니다.")
+        else:
+            print(f"\n총 {count}개의 검색 결과")
 
     # 상세 보기
     def show_prompt_detail(self):
-        pass
+
+        if not self.prompts:
+            print("등록된 프롬프트가 없습니다.")
+            return
+
+        print("\n===== 프롬프트 목록 =====")
+
+        for i, prompt in enumerate(self.prompts, start=1):
+            print(f"{i}. ", end="")
+            prompt.print_list()
+
+        choice = input("\n번호 선택 : ")
+
+        if not choice.isdigit():
+            print("잘못된 입력입니다.")
+            return
+
+        index = int(choice) - 1
+
+        if index < 0 or index >= len(self.prompts):
+            print("잘못된 번호입니다.")
+            return
+
+        print("\n===== 프롬프트 상세 =====")
+        self.prompts[index].print_detail()
 
     # 즐겨찾기 추가/해제
     def toggle_favorite(self):
@@ -232,10 +279,10 @@ class PromptApp:
                 self.manager.show_by_category()
 
             elif choice == "4":
-                print("검색 기능 구현 예정")
+                self.manager.search_prompt()
 
             elif choice == "5":
-                print("상세 보기 기능 구현 예정")
+                self.manager.show_prompt_detail()
 
             elif choice == "6":
                 print("즐겨찾기 관리 기능 구현 예정")
