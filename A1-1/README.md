@@ -30,7 +30,7 @@ Python의 기본 문법(변수, 조건문, 반복문, 함수, 클래스)을 활�
 프로젝트를 다운로드한 후 터미널에서 실행합니다.
 
 ```bash
-python main.py
+python sorting_prompt.py
 ```
 
 ※ 실행 파일명이 다를 경우 해당 파일명을 입력하면 됩니다.
