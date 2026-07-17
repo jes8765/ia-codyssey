@@ -133,8 +133,49 @@ class PromptManager:
 
     # 카테고리 조회
     def show_by_category(self):
-        pass
 
+        categories = [
+            "텍스트 생성",
+            "이미지 생성",
+            "영상 생성",
+            "페르소나",
+            "자동화",
+            "기타"
+        ]
+
+        print("\n===== 카테고리 조회 =====")
+
+        for i, category in enumerate(categories, start=1):
+            print(f"{i}. {category}")
+
+        choice = input("번호 선택 : ")
+
+        if not choice.isdigit():
+            print("잘못된 입력입니다.")
+            return
+
+        index = int(choice) - 1
+    
+        if index < 0 or index >= len(categories):
+            print("잘못된 입력입니다.")
+            return
+
+        selected = categories[index]
+
+        print(f"\n===== {selected} =====")
+
+        count = 0
+
+        for prompt in self.prompts:
+            if prompt.category == selected:
+                count += 1
+                print(f"{count}. ", end="")
+                prompt.print_list()
+
+        if count == 0:
+            print("해당 카테고리의 프롬프트가 없습니다.")
+        else:
+            print(f"\n총 {count}개의 프롬프트")
     # 검색
     def search_prompt(self):
         pass
@@ -188,7 +229,7 @@ class PromptApp:
                 self.manager.show_prompt_list()
 
             elif choice == "3":
-                print("카테고리 조회 기능 구현 예정")
+                self.manager.show_by_category()
 
             elif choice == "4":
                 print("검색 기능 구현 예정")
@@ -214,3 +255,5 @@ class PromptApp:
 app = PromptApp()
 app.run()
 
+#v5까지 해서 커밋해뒀고 git log --oneline --graph --all 로 커밋 잘 됏는지 확인
+#git branch로 현재 메인 브랜치에서 작업중인지 확인
