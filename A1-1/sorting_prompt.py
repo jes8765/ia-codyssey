@@ -233,8 +233,38 @@ class PromptManager:
 
     # 즐겨찾기 추가/해제
     def toggle_favorite(self):
-        pass
 
+        if not self.prompts:
+            print("등록된 프롬프트가 없습니다.")
+            return
+
+        print("\n===== 프롬프트 목록 =====")
+
+        for i, prompt in enumerate(self.prompts, start=1):
+            print(f"{i}. ", end="")
+            prompt.print_list()
+
+        choice = input("\n번호 선택 : ")
+
+        if not choice.isdigit():
+            print("잘못된 입력입니다.")
+            return
+
+        index = int(choice) - 1
+  
+        if index < 0 or index >= len(self.prompts):
+            print("잘못된 번호입니다.")
+            return
+
+        prompt = self.prompts[index]
+
+        prompt.favorite = not prompt.favorite
+
+        if prompt.favorite:
+            print("즐겨찾기에 추가되었습니다.")
+        else:
+            print("즐겨찾기에서 제거되었습니다.")
+    
     # 즐겨찾기 목록
     def show_favorites(self):
         pass
@@ -285,7 +315,7 @@ class PromptApp:
                 self.manager.show_prompt_detail()
 
             elif choice == "6":
-                print("즐겨찾기 관리 기능 구현 예정")
+                self.manager.toggle_favorite()
 
             elif choice == "7":
                 print("즐겨찾기 목록 기능 구현 예정")
