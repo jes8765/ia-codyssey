@@ -199,6 +199,7 @@ PromptManager
 - 즐겨찾기 목록
 - git log --oneline --graph
 
+```bash
 *   8ac2134 (HEAD -> main) Merge branch 'prompt-list'
 |\
 | * 6d213ab (prompt-list) 프롬프트 목록 기능 개선
@@ -211,7 +212,7 @@ PromptManager
 * 27686fd 클래스 추가
 * 18055dd 기본 프롬프트 데이터 추가
 * 169b3dd 프로젝트 구조 설계
-
+```
 ---
 
 # 학습 내용
