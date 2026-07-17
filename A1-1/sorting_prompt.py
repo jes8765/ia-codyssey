@@ -267,7 +267,23 @@ class PromptManager:
     
     # 즐겨찾기 목록
     def show_favorites(self):
-        pass
+
+        print("\n===== 즐겨찾기 목록 =====")
+
+        count = 0
+
+        for prompt in self.prompts:
+
+            if prompt.favorite:
+    
+                count += 1
+                print(f"{count}. ", end="")
+                prompt.print_list()
+
+        if count == 0:
+           print("즐겨찾기한 프롬프트가 없습니다.")
+        else:
+            print(f"\n총 {count}개의 즐겨찾기")
 
 
 # ---------------- 메인 앱 ----------------
@@ -318,7 +334,7 @@ class PromptApp:
                 self.manager.toggle_favorite()
 
             elif choice == "7":
-                print("즐겨찾기 목록 기능 구현 예정")
+                self.manager.show_favorites()
 
             elif choice == "0":
                 print("프로그램을 종료합니다.")
