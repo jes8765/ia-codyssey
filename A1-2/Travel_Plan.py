@@ -55,22 +55,33 @@ recommended_city에는 도시 이름만 작성하세요.
 
         text = response.output_text
 
-        travel_info = json.loads(text)
+        try:
+            travel_info = json.loads(text)
+            return travel_info
 
-        return travel_info
+        except json.JSONDecodeError:
 
-    except json.JSONDecodeError:
-        print("❌ AI 응답을 처리하지 못했습니다.")
-        return None
+            print("JSON 파싱 실패. 다시 요청합니다.")
+
+            retry_prompt = prompt + """
+
+        반드시 JSON만 출력하세요.
+        설명은 절대 쓰지 마세요.
+        """
+
+            response = client.responses.create(
+                model="gpt-5-mini",
+                input=retry_prompt
+            )
+
+            travel_info = json.loads(response.output_text)
+
+            return travel_info
 
     except Exception as e:
         print(f"❌ 여행 추천 생성 실패: {e}")
         return None
     
-    except Exception as e:
-        print(f"❌ 리포트 생성 실패: {e}")
-        return None
-
 
 def search_restaurants(city):
 
@@ -100,7 +111,7 @@ def search_restaurants(city):
 
     except requests.exceptions.RequestException as e:
         print(f"❌ 맛집 검색 실패: {e}")
-        return []
+        return None
  
 
     data = response.json()
@@ -120,37 +131,39 @@ def search_restaurants(city):
 
     return restaurants
 
-def save_travel_info(travel_info, restaurants):
+def save_travel_info(date, travel_info, restaurants, errors):
 
     data = {
-        "recommended_city": travel_info["recommended_city"],
-        "weather": travel_info["weather"],
-        "events": travel_info["events"],
-        "reason": travel_info["reason"],
-        "restaurants": restaurants
+    "recommended_city": travel_info["recommended_city"],
+    "weather": travel_info["weather"],
+    "events": travel_info["events"],
+    "reason": travel_info["reason"],
+    "restaurants": restaurants,
+    "errors": errors
     }
+       
 
     os.makedirs("results", exist_ok=True)
 
-try:
-    with open(
-        "results/travel_info.json",
-        "w",
-        encoding="utf-8"
-    ) as file:
-        json.dump(
-            data,
-            file,
-            ensure_ascii=False,
-            indent=4
-        )
+    try:
+        with open(
+            f"results/{date}_travel_info.json",
+            "w",
+            encoding="utf-8"
+        ) as file:
+            json.dump(
+                data,
+                file,
+                ensure_ascii=False,
+                indent=4
+            )
 
-    print("여행 정보 저장 완료!")
+        print("여행 정보 저장 완료!")
 
-except OSError as e:
-    print(f"❌ 여행 정보 저장 실패: {e}")
+    except OSError as e:
+        print(f"❌ 여행 정보 저장 실패: {e}")
 
-def generate_report(client, travel_info, restaurants):
+def generate_report(client, date, travel_info, restaurants):
 
     print("[3/3] 최종 리포트 생성 중...")
 
@@ -195,7 +208,7 @@ Markdown만 출력하세요.
     os.makedirs("results", exist_ok=True)
 
     with open(
-        "results/travel_report.md",
+        f"results/{date}_travel_report.md",
         "w",
         encoding="utf-8"
     ) as file:
@@ -208,6 +221,15 @@ Markdown만 출력하세요.
 
 def main():
     load_dotenv()
+    if not os.getenv("OPENAI_API_KEY"):
+        print("❌ OPENAI_API_KEY가 설정되지 않았습니다.")
+        print(".env 파일을 확인하세요.")
+        return
+
+    if not os.getenv("KAKAO_REST_API_KEY"):
+        print("❌ KAKAO_REST_API_KEY가 설정되지 않았습니다.")
+        print(".env 파일을 확인하세요.")
+        return
 
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
@@ -225,6 +247,7 @@ def main():
     args = parser.parse_args()
 
     print(f"입력한 여행 날짜: {args.date}")
+    errors = []
 
     # 여행 추천
     travel_info = get_travel_recommendation(client, args.date)
@@ -237,19 +260,36 @@ def main():
     restaurants = search_restaurants(
         travel_info["recommended_city"]
     )
+    if restaurants is None:
 
-    # ✅ 추가
-    if not restaurants:
+        restaurants = []
+
+        errors.append({
+        "step":"place_search",
+        "type":"API_ERROR",
+        "message":"맛집 API 호출 실패"
+        })
+
+    elif not restaurants:
+
         print("⚠️ 맛집 정보를 가져오지 못했습니다.")
 
+        errors.append({
+        "step":"place_search",
+        "type":"EMPTY_RESULT",
+        "message":"검색 결과 없음"
+        })
+
     save_travel_info(
+        args.date,
         travel_info,
-        restaurants
+        restaurants,
+        errors
     )
 
-    # 리포트 생성
     report = generate_report(
         client,
+        args.date,
         travel_info,
         restaurants
     )
