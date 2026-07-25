@@ -166,7 +166,18 @@ def save_travel_info(date, travel_info, restaurants, errors):
 def generate_report(client, date, travel_info, restaurants):
 
     print("[3/3] 최종 리포트 생성 중...")
+    restaurant_text = "\n".join(
+    f"- {r['name']} ({r['category']})\n"
+    f"  주소 : {r['address']}\n"
+    f"  전화 : {r['phone']}\n"
+    f"  링크 : {r['url']}"
+    for r in restaurants
+)
 
+    event_text = "\n".join(
+    f"- {event}"
+    for event in travel_info["events"]
+    )
     prompt = f"""
 당신은 여행 플래너입니다.
 
@@ -183,17 +194,11 @@ def generate_report(client, date, travel_info, restaurants):
 {travel_info["reason"]}
 
 행사 :
-{chr(10).join("- " + event for event in travel_info["events"])}
+{event_text}
 
 맛집 :
 
-{chr(10).join(
-    f"- {r['name']} ({r['category']})\n"
-    f"  주소 : {r['address']}\n"
-    f"  전화 : {r['phone']}\n"
-    f"  링크 : {r['url']}"
-    for r in restaurants
-)}
+{restaurant_text}
 
 Markdown만 출력하세요.
 """
