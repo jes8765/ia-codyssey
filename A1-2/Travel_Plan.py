@@ -31,7 +31,7 @@ def get_travel_recommendation(client, date):
 - 서울
 - 부산
 - 강릉
-- 제주
+- 제주 
 - 여수
 - 경주
 
@@ -63,7 +63,7 @@ recommended_city에는 도시 이름만 작성하세요.
 
             print("JSON 파싱 실패. 다시 요청합니다.")
 
-            retry_prompt = prompt + """
+            retry_prompt = prompt + """ 
 
         반드시 JSON만 출력하세요.
         설명은 절대 쓰지 마세요.
