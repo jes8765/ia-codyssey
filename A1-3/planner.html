@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Game Planner</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/planner.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <a href="index.html" class="logo">
+            GameForge AI
+        </a>
+
+        <nav class="nav">
+            <a href="planner.html">Planner</a>
+            <a href="resources.html">Resources</a>
+            <a href="mentor.html">Mentor</a>
+        </nav>
+
+    </div>
+
+</header>
+
+<main>
+
+    <div class="container">
+
+        <section class="planner">
+
+            <h1>Game Planner</h1>
+
+            <p class="planner-subtitle">
+                Create your next game idea with AI.
+            </p>
+
+            <!-- 선택 버튼이 JS로 생성되는 영역 -->
+            <div id="planner-container"></div>
+
+            <!-- 자유 입력 -->
+            <div class="planner-inputs">
+
+                <div class="input-group">
+                    <label for="concept">Game Concept</label>
+                    <textarea
+                        id="concept"
+                        placeholder="Describe your game idea..."
+                    ></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="story">Story / Background</label>
+                    <textarea
+                        id="story"
+                        placeholder="Describe the story or world..."
+                    ></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="reference">Reference Games</label>
+                    <textarea
+                        id="reference"
+                        placeholder="e.g. Hades, Stardew Valley"
+                    ></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="request">Additional Requests</label>
+                    <textarea
+                        id="request"
+                        placeholder="Anything else?"
+                    ></textarea>
+                </div>
+
+                <button id="generate-btn">
+                    Generate Game Idea
+                </button>
+
+            </div>
+
+            <!-- 결과 출력 -->
+            <div id="result-container" class="result-container hidden">
+
+                <h2>Generated Game Plan</h2>
+
+                <div id="result-content"></div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+<script src="js/planner.js"></script>
+
+</body>
+
+</html>
+

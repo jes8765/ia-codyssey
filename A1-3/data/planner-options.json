@@ -1,0 +1,104 @@
+{
+"genre": [
+  "Action",
+  "Adventure",
+  "RPG",
+  "Shooter",
+  "Strategy",
+  "Puzzle",
+  "Simulation",
+  "Horror",
+  "Racing",
+  "Sports",
+  "Fighting",
+  "Rhythm",
+  "Visual Novel",
+  "Educational",
+  "Party Game"
+],
+"features": [
+  "Action RPG",
+  "JRPG",
+  "MMORPG",
+  "Open World",
+  "Sandbox",
+  "Survival",
+  "Roguelike",
+  "Roguelite",
+  "Metroidvania",
+  "Souls-like",
+  "Idle",
+  "Incremental",
+  "Management",
+  "Detective",
+  "Mystery"
+],
+"mode": [
+  "Single Player",
+  "Multiplayer",
+  "Co-op",
+  "Local Multiplayer",
+  "Online Multiplayer"
+],
+
+  "perspective": [
+    "Top-down",
+    "Side View",
+    "Isometric",
+    "First Person",
+    "Third Person"
+  ],
+  "mood": [
+  "Cute",
+  "Relaxing",
+  "Fantasy",
+  "Sci-Fi",
+  "Cyberpunk",
+  "Steampunk",
+  "Post-apocalyptic",
+  "Dark",
+  "Wholesome",
+  "Comedy",
+  "Mystery",
+  "Horror"
+],
+"artStyle": [
+  "Pixel Art",
+  "2D Cartoon",
+  "Anime",
+  "Low Poly",
+  "Voxel",
+  "3D Stylized",
+  "Realistic",
+  "Hand-drawn"
+],
+
+  "platform": [
+    "PC",
+    "Mobile",
+    "Console",
+    "Web"
+  ],
+  "mechanics": [
+  "Crafting",
+  "Base Building",
+  "Deck Building",
+  "Turn-based Combat",
+  "Real-time Combat",
+  "Resource Management",
+  "Dialogue Choices",
+  "Quest System",
+  "Inventory",
+  "Skill Tree",
+  "Leveling",
+  "Permadeath",
+  "Procedural Generation",
+  "Physics-based",
+  "Stealth",
+  "Parkour",
+  "Trading",
+  "Cooking",
+  "Fishing",
+  "Farming"
+]
+}
