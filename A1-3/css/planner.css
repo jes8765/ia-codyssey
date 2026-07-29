@@ -211,3 +211,43 @@ main{
     background:#256f46;
 
 }
+
+#loading-message{
+
+    margin-top:30px;
+
+    text-align:center;
+
+    font-size:18px;
+
+    color:#2E8B57;
+
+}
+
+.ai-result{
+
+    background:#ffffff;
+
+    padding:24px;
+
+    border-radius:12px;
+
+    line-height:1.8;
+
+    white-space:pre-wrap;
+
+    word-break:break-word;
+
+    font-size:15px;
+
+}
+
+.ai-result pre{
+
+    margin:0;
+
+    white-space:pre-wrap;
+
+    font-family:inherit;
+
+}

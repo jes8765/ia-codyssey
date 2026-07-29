@@ -1,4 +1,5 @@
 const selectedOptions = {};
+console.log("NEW planner.js loaded");
 
 // ===============================
 // Load Planner Options
@@ -151,11 +152,49 @@ document
     setGenerating(true);
 
     // AI 호출 예정
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+
+    const response = await fetch("http://127.0.0.1:5000/generate", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(selectedOptions)
+
+    });
+
+    const result = await response.json();
+
+const container = document.getElementById("ai-result-container");
+const content = document.getElementById("ai-result-content");
+
+console.log(container);
+console.log(content);
+
+container.classList.remove("hidden");
+
+content.innerHTML = `
+<div class="ai-result">
+<pre>${result.result}</pre>
+</div>
+`;
+
+}
+catch(error){
+
+    console.error(error);
+
+    alert("AI 호출에 실패했습니다.");
+
+}
+finally{
 
     setGenerating(false);
 
-    alert("AI generation will be available soon.");
+}
 
 });
 
@@ -238,19 +277,29 @@ function createTextSection(title, text) {
 
 }
 
+
 function setGenerating(isGenerating) {
 
     const button = document.getElementById("generate-btn");
+    const loading = document.getElementById("loading-message");
 
     if (isGenerating) {
 
         button.disabled = true;
         button.textContent = "Generating...";
 
+        if (loading) {
+            loading.classList.remove("hidden");
+        }
+
     } else {
 
         button.disabled = false;
         button.textContent = "Generate with AI";
+
+        if (loading) {
+            loading.classList.add("hidden");
+        }
 
     }
 
