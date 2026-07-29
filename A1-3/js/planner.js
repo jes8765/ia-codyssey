@@ -1,8 +1,12 @@
 const selectedOptions = {};
+
+// ===============================
+// Load Planner Options
+// ===============================
+
 async function loadPlannerOptions() {
 
     const response = await fetch("data/planner-options.json");
-
     const data = await response.json();
 
     createOptionSection(data);
@@ -10,6 +14,10 @@ async function loadPlannerOptions() {
 }
 
 loadPlannerOptions();
+
+// ===============================
+// Create Option Buttons
+// ===============================
 
 function createOptionSection(data) {
 
@@ -30,26 +38,24 @@ function createOptionSection(data) {
 
         data[category].forEach(option => {
 
-    const button = document.createElement("button");
+            const button = document.createElement("button");
 
-    button.className = "option-btn";
+            button.className = "option-btn";
+            button.textContent = option;
 
-    button.textContent = option;
+            button.addEventListener("click", () => {
 
-    button.addEventListener("click", () => {
+                button.classList.toggle("selected");
 
-    button.classList.toggle("selected");
+                updateSelection(category, option);
 
-    updateSelection(category, option);
+            });
 
-});
+            buttonContainer.appendChild(button);
 
-    buttonContainer.appendChild(button);
-
-});
+        });
 
         section.appendChild(title);
-
         section.appendChild(buttonContainer);
 
         container.appendChild(section);
@@ -57,6 +63,10 @@ function createOptionSection(data) {
     }
 
 }
+
+// ===============================
+// Title Format
+// ===============================
 
 function formatTitle(text) {
 
@@ -66,25 +76,39 @@ function formatTitle(text) {
 
 }
 
+// ===============================
+// Save Selected Options
+// ===============================
+
 function updateSelection(category, option) {
 
     if (!selectedOptions[category]) {
+
         selectedOptions[category] = [];
+
     }
 
     const index = selectedOptions[category].indexOf(option);
 
     if (index === -1) {
+
         selectedOptions[category].push(option);
+
     } else {
+
         selectedOptions[category].splice(index, 1);
+
     }
 
     console.log(selectedOptions);
 
 }
 
-function collectPlannerData(){
+// ===============================
+// Collect Textarea Data
+// ===============================
+
+function collectPlannerData() {
 
     selectedOptions.concept =
         document.getElementById("concept").value;
@@ -100,16 +124,44 @@ function collectPlannerData(){
 
 }
 
+// ===============================
+// Preview
+// ===============================
+
+document
+    .getElementById("preview-btn")
+    .addEventListener("click", () => {
+
+        collectPlannerData();
+
+        renderPreview();
+
+    });
+
+// ===============================
+// Generate AI
+// ===============================
 
 document
 .getElementById("generate-btn")
-.addEventListener("click", () => {
+.addEventListener("click", async () => {
 
     collectPlannerData();
 
-    renderPreview();
+    setGenerating(true);
+
+    // AI 호출 예정
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    setGenerating(false);
+
+    alert("AI generation will be available soon.");
 
 });
+
+// ===============================
+// Render Preview
+// ===============================
 
 function renderPreview() {
 
@@ -118,56 +170,88 @@ function renderPreview() {
 
     container.classList.remove("hidden");
 
-    const prompt = buildPrompt();
-
     content.innerHTML = `
-        <div class="result-content-section">
-            <h3>Prompt Preview</h3>
-            <pre>${prompt}</pre>
-        </div>
+
+        ${createSection("Genre", selectedOptions.genre)}
+        ${createSection("Game Features", selectedOptions.features)}
+        ${createSection("Game Mode", selectedOptions.mode)}
+        ${createSection("Perspective", selectedOptions.perspective)}
+        ${createSection("Mood", selectedOptions.mood)}
+        ${createSection("Art Style", selectedOptions.artStyle)}
+        ${createSection("Platform", selectedOptions.platform)}
+        ${createSection("Core Mechanics", selectedOptions.mechanics)}
+
+        ${createTextSection("Game Concept", selectedOptions.concept)}
+        ${createTextSection("Story / Background", selectedOptions.story)}
+        ${createTextSection("Reference Games", selectedOptions.reference)}
+        ${createTextSection("Additional Requests", selectedOptions.request)}
+
     `;
+
 }
 
+// ===============================
+// Helpers
+// ===============================
 
-function buildPrompt() {
+function createSection(title, values) {
+
+    if (!values || values.length === 0) {
+
+        return "";
+
+    }
 
     return `
-Create a detailed game design document based on the following requirements.
 
-Genre:
-${selectedOptions.genre?.join(", ") || "None"}
+        <div class="result-content-section">
 
-Game Features:
-${selectedOptions.features?.join(", ") || "None"}
+            <h3>${title}</h3>
 
-Game Mode:
-${selectedOptions.mode?.join(", ") || "None"}
+            <p>${values.join(", ")}</p>
 
-Perspective:
-${selectedOptions.perspective?.join(", ") || "None"}
+        </div>
 
-Mood:
-${selectedOptions.mood?.join(", ") || "None"}
+    `;
 
-Art Style:
-${selectedOptions.artStyle?.join(", ") || "None"}
+}
 
-Platform:
-${selectedOptions.platform?.join(", ") || "None"}
+function createTextSection(title, text) {
 
-Core Mechanics:
-${selectedOptions.mechanics?.join(", ") || "None"}
+    if (!text || text.trim() === "") {
 
-Game Concept:
-${selectedOptions.concept || ""}
+        return "";
 
-Story / Background:
-${selectedOptions.story || ""}
+    }
 
-Reference Games:
-${selectedOptions.reference || ""}
+    return `
 
-Additional Requests:
-${selectedOptions.request || ""}
-`;
+        <div class="result-content-section">
+
+            <h3>${title}</h3>
+
+            <p>${text}</p>
+
+        </div>
+
+    `;
+
+}
+
+function setGenerating(isGenerating) {
+
+    const button = document.getElementById("generate-btn");
+
+    if (isGenerating) {
+
+        button.disabled = true;
+        button.textContent = "Generating...";
+
+    } else {
+
+        button.disabled = false;
+        button.textContent = "Generate with AI";
+
+    }
+
 }

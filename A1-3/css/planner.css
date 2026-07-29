@@ -158,3 +158,56 @@ main{
 .result-content-section p{
     line-height:1.7;
 }
+
+.planner-actions{
+
+    display:flex;
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+.planner-actions button{
+
+    flex:1;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    font-weight:600;
+
+}
+
+.secondary-btn{
+
+    background:#e8efe8;
+    color:#2E8B57;
+
+}
+
+.secondary-btn:hover{
+
+    background:#dce8dc;
+
+}
+
+.primary-btn{
+
+    background:#2E8B57;
+    color:white;
+
+}
+
+.primary-btn:hover{
+
+    background:#256f46;
+
+}
