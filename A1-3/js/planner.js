@@ -111,6 +111,8 @@ function updateSelection(category, option) {
 
 function collectPlannerData() {
 
+    // 기본 입력
+
     selectedOptions.concept =
         document.getElementById("concept").value;
 
@@ -122,6 +124,29 @@ function collectPlannerData() {
 
     selectedOptions.request =
         document.getElementById("request").value;
+
+
+    // Advanced Options
+
+    selectedOptions.customGenre =
+        document.getElementById("custom-genre").value;
+
+    selectedOptions.customFeatures =
+        document.getElementById("custom-features").value;
+
+    selectedOptions.customMechanics =
+        document.getElementById("custom-mechanics").value;
+
+    selectedOptions.customMood =
+        document.getElementById("custom-mood").value;
+
+    selectedOptions.customArtStyle =
+        document.getElementById("custom-artstyle").value;
+
+    selectedOptions.customPlatform =
+        document.getElementById("custom-platform").value;
+
+    console.log(selectedOptions);
 
 }
 
@@ -211,21 +236,58 @@ function renderPreview() {
 
     content.innerHTML = `
 
-        ${createSection("Genre", selectedOptions.genre)}
-        ${createSection("Game Features", selectedOptions.features)}
-        ${createSection("Game Mode", selectedOptions.mode)}
-        ${createSection("Perspective", selectedOptions.perspective)}
-        ${createSection("Mood", selectedOptions.mood)}
-        ${createSection("Art Style", selectedOptions.artStyle)}
-        ${createSection("Platform", selectedOptions.platform)}
-        ${createSection("Core Mechanics", selectedOptions.mechanics)}
+    ${createSection(
+    "Genre",
+    selectedOptions.genre,
+    selectedOptions.customGenre
+)}
 
-        ${createTextSection("Game Concept", selectedOptions.concept)}
-        ${createTextSection("Story / Background", selectedOptions.story)}
-        ${createTextSection("Reference Games", selectedOptions.reference)}
-        ${createTextSection("Additional Requests", selectedOptions.request)}
+${createSection(
+    "Game Features",
+    selectedOptions.features,
+    selectedOptions.customFeatures
+)}
 
-    `;
+${createSection(
+    "Game Mode",
+    selectedOptions.mode
+)}
+
+${createSection(
+    "Perspective",
+    selectedOptions.perspective
+)}
+
+${createSection(
+    "Mood",
+    selectedOptions.mood,
+    selectedOptions.customMood
+)}
+
+${createSection(
+    "Art Style",
+    selectedOptions.artStyle,
+    selectedOptions.customArtStyle
+)}
+
+${createSection(
+    "Platform",
+    selectedOptions.platform,
+    selectedOptions.customPlatform
+)}
+
+${createSection(
+    "Core Mechanics",
+    selectedOptions.mechanics,
+    selectedOptions.customMechanics
+)}
+
+${createTextSection("Game Concept", selectedOptions.concept)}
+${createTextSection("Story / Background", selectedOptions.story)}
+${createTextSection("Reference Games", selectedOptions.reference)}
+${createTextSection("Additional Requests", selectedOptions.request)}
+
+`;
 
 }
 
@@ -233,24 +295,27 @@ function renderPreview() {
 // Helpers
 // ===============================
 
-function createSection(title, values) {
+function createSection(title, values, custom) {
 
-    if (!values || values.length === 0) {
+    const items = [];
 
+    if (values && values.length > 0) {
+        items.push(...values);
+    }
+
+    if (custom && custom.trim() !== "") {
+        items.push(custom);
+    }
+
+    if (items.length === 0) {
         return "";
-
     }
 
     return `
-
         <div class="result-content-section">
-
             <h3>${title}</h3>
-
-            <p>${values.join(", ")}</p>
-
+            <p>${items.join(", ")}</p>
         </div>
-
     `;
 
 }
@@ -304,3 +369,27 @@ function setGenerating(isGenerating) {
     }
 
 }
+
+const toggle =
+document.getElementById("advanced-toggle");
+
+const advanced =
+document.getElementById("advanced-options");
+
+toggle.addEventListener("click",()=>{
+
+    advanced.classList.toggle("hidden");
+
+    if(advanced.classList.contains("hidden")){
+
+        toggle.textContent="▼ Advanced Options";
+
+    }
+
+    else{
+
+        toggle.textContent="▲ Advanced Options";
+
+    }
+
+});

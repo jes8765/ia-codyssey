@@ -1,0 +1,199 @@
+main{
+
+    padding:80px 0;
+
+}
+
+.resources h1{
+
+    font-size:48px;
+
+    margin-bottom:10px;
+
+}
+
+.resources-subtitle{
+
+    color:#666;
+
+    margin-bottom:40px;
+
+}
+
+/* =========================
+Search
+========================= */
+
+.search-box{
+
+    margin-bottom:35px;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    padding:15px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+}
+
+/* =========================
+Category Buttons
+========================= */
+
+#category-container,
+#subcategory-container{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-bottom:25px;
+
+}
+
+.category-btn,
+.subcategory-btn{
+
+    padding:12px 20px;
+
+    border:1px solid #ddd;
+
+    border-radius:999px;
+
+    background:white;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    font-size:15px;
+
+}
+
+.category-btn:hover,
+.subcategory-btn:hover{
+
+    border-color:#2E8B57;
+
+    color:#2E8B57;
+
+}
+
+.category-btn.selected,
+.subcategory-btn.selected{
+
+    background:#2E8B57;
+
+    color:white;
+
+    border-color:#2E8B57;
+
+}
+
+/* =========================
+Cards
+========================= */
+
+#resource-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+
+    gap:25px;
+
+    margin-top:40px;
+
+}
+
+.resource-card{
+
+    background:white;
+
+    border:1px solid #ddd;
+
+    border-radius:16px;
+
+    padding:24px;
+
+    transition:.2s;
+
+}
+
+.resource-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.resource-card h3{
+
+    margin-bottom:12px;
+
+    color:#2E8B57;
+
+    font-size:22px;
+
+}
+
+.resource-card p{
+
+    margin:8px 0;
+
+    color:#555;
+
+}
+
+.resource-card a{
+
+    display:inline-block;
+
+    margin-top:18px;
+
+    padding:10px 18px;
+
+    background:#2E8B57;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:8px;
+
+    transition:.2s;
+
+}
+
+.resource-card a:hover{
+
+    background:#256f46;
+
+}
+
+/* =========================
+Empty
+========================= */
+
+.empty-message{
+
+    text-align:center;
+
+    color:#888;
+
+    padding:50px;
+
+    font-size:18px;
+
+}

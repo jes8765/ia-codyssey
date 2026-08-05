@@ -251,3 +251,41 @@ main{
     font-family:inherit;
 
 }
+
+.advanced-section{
+
+    margin-top:40px;
+
+}
+
+.advanced-options{
+
+    margin-top:20px;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    background:#f8f8f8;
+
+}
+
+.advanced-options input{
+
+    width:100%;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    border:1px solid #ccc;
+
+    font-size:15px;
+
+}
+
+.hidden{
+
+    display:none;
+
+}

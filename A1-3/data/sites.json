@@ -1,0 +1,348 @@
+{
+    "AI": {
+        "Interactive/Code Writing mcp": [
+            {
+                "name": "ChatGPT",
+                "price": "부분유료",
+                "url": "https://chatgpt.com/"
+            },
+            {
+                "name": "Cursor",
+                "price": "부분유료",
+                "url": "https://cursor.com/"
+            },
+            {
+                "name": "Claude",
+                "price": "부분유료",
+                "url": "https://claude.com/"
+            },
+            {
+                "name": "Codex",
+                "price": "부분유료",
+                "url": "https://openai.com/ko-KR/codex/"
+            }
+        ],
+
+        "Image Generation": [
+            {
+                "name": "AI Pixel Art Generator",
+                "price": "무료",
+                "url": "https://perchance.org/ai-pixel-art-generator"
+            },
+            {
+                "name": "ComfyUI",
+                "price": "부분유료",
+                "url": "https://cloud.comfy.org/"
+            },
+            {
+                "name": "NanoBanana",
+                "price": "무료",
+                "url": "https://nano-banana.kr/"
+            },
+            {
+                "name": "Krea",
+                "price": "무료",
+                "url": "https://www.krea.ai/realtime"
+            }
+        ],
+
+        "Music Generation": [
+            {
+                "name": "Suno",
+                "price": "부분유료",
+                "url": "https://suno.com/"
+            }
+        ]
+    },
+
+    "GameAsset": {
+
+        "Multi-Category Assets": [
+            {
+                "name": "Unity Asset Store",
+                "price": "부분유료",
+                "url": "https://assetstore.unity.com/"
+            },
+            {
+                "name": "Itch.io",
+                "price": "부분유료",
+                "url": "https://itch.io/c/5081481/free-asset"
+            },
+            {
+                "name": "CraftPix",
+                "price": "부분유료",
+                "url": "https://craftpix.net/freebies/page/24/"
+            },
+            {
+                "name": "OpenGameArt",
+                "price": "무료",
+                "url": "https://opengameart.org/"
+            },
+            {
+                "name": "Kenney",
+                "price": "무료",
+                "url": "https://kenney.nl/assets"
+            }
+        ],
+
+        "3D": [
+            {
+                "name": "Quaternius",
+                "price": "무료",
+                "url": "https://quaternius.com/"
+            },
+            {
+                "name": "PolyHaven",
+                "price": "무료",
+                "url": "https://polyhaven.com/"
+            },
+            {
+                "name": "Sketchfab",
+                "price": "무료",
+                "url": "https://sketchfab.com/"
+            },
+            {
+                "name": "DevAssets",
+                "price": "무료",
+                "url": "https://devassets.com/browse/"
+            },
+            {
+                "name": "KayKit",
+                "price": "부분유료",
+                "url": "https://kaylousberg.itch.io/"
+            }
+        ],
+
+        "2D": [
+            {
+                "name": "GameArt2D",
+                "price": "무료",
+                "url": "https://www.gameart2d.com/"
+            }
+        ],
+
+        "UI/UX": [
+            {
+                "name": "Game UI Database",
+                "price": "부분유료",
+                "url": "https://www.gameuidatabase.com/"
+            },
+            {
+                "name": "Interface In Game",
+                "price": "부분유료",
+                "url": "https://interfaceingame.com/"
+            },
+            {
+                "name": "Behance",
+                "price": "부분유료",
+                "url": "https://www.behance.net/tags/game-ui"
+            }
+        ],
+
+        "Audio": [
+            {
+                "name": "Freesound",
+                "price": "무료",
+                "url": "https://freesound.org/"
+            },
+            {
+                "name": "Sonniss",
+                "price": "무료",
+                "url": "https://sonniss.com/gameaudiogdc/"
+            },
+            {
+                "name": "Pixabay",
+                "price": "부분유료",
+                "url": "https://pixabay.com/sound-effects/"
+            },
+            {
+                "name": "Bensound",
+                "price": "무료",
+                "url": "https://www.bensound.com/"
+            }
+        ],
+
+        "SoundEffect": [
+            {
+                "name": "ZapSplat",
+                "price": "부분유료",
+                "url": "https://www.zapsplat.com/"
+            },
+            {
+                "name": "Freesound",
+                "price": "무료",
+                "url": "https://freesound.org/"
+            },
+            {
+                "name": "Mixkit",
+                "price": "무료",
+                "url": "https://mixkit.co/"
+            }
+        ]
+    },
+
+    "Fonts": {
+        "All": [
+            {
+                "name": "Noonnu",
+                "price": "무료",
+                "url": "https://noonnu.cc/"
+            },
+            {
+                "name": "Google Fonts",
+                "price": "무료",
+                "url": "https://fonts.google.com/"
+            },
+            {
+                "name": "FontStruct",
+                "price": "무료",
+                "url": "https://fontstruct.com/"
+            }
+        ]
+    },
+
+    "Image": {
+        "All": [
+            {
+                "name": "Unsplash",
+                "price": "부분유료",
+                "url": "https://unsplash.com/"
+            },
+            {
+                "name": "Pexels",
+                "price": "부분유료",
+                "url": "https://www.pexels.com/"
+            }
+        ]
+    },
+
+    "OutSource": {
+        "All": [
+            {
+                "name": "Artmug",
+                "price": null,
+                "url": "https://artmug.kr/"
+            },
+            {
+                "name": "Behance",
+                "price": null,
+                "url": "https://www.behance.net/for_you"
+            }
+        ]
+    },
+
+    "Funding": {
+        "All": [
+            {
+                "name": "Tumblbug",
+                "price": null,
+                "url": "https://tumblbug.com/"
+            },
+            {
+                "name": "Wadiz",
+                "price": null,
+                "url": "https://www.wadiz.kr/"
+            },
+            {
+                "name": "Kickstarter",
+                "price": null,
+                "url": "https://www.kickstarter.com/"
+            }
+        ]
+    },
+
+    "SNS": {
+        "All": [
+            {
+                "name": "Notion",
+                "price": null,
+                "url": "https://www.notion.com/"
+            },
+            {
+                "name": "GitHub",
+                "price": null,
+                "url": "https://github.com/"
+            },
+            {
+                "name": "Reddit",
+                "price": null,
+                "url": "https://www.reddit.com/"
+            },
+            {
+                "name": "YouTube",
+                "price": null,
+                "url": "https://www.youtube.com/"
+            },
+            {
+                "name": "NaverBlog",
+                "price": null,
+                "url": "https://section.blog.naver.com/BlogHome.naver?directoryNo=0&currentPage=1&groupId=0"
+            },
+            {
+                "name": "Inditor",
+                "price": null,
+                "url": "https://cafe.naver.com/indiedev"
+            }
+        ]
+    },
+
+    "Learn": {
+        "All": [
+            {
+                "name": "Unity Learn",
+                "price": "무료",
+                "url": "https://learn.unity.com/"
+            },
+            {
+                "name": "CodeMonkey",
+                "price": "부분유료",
+                "url": "https://unitycodemonkey.com/"
+            },
+            {
+                "name": "Unity GoldMetal",
+                "price": "무료",
+                "url": "https://edumoa.tistory.com/"
+            }
+        ]
+    },
+
+    "GameDownloadPlatform": {
+        "All": [
+            {
+                "name": "Itch.io",
+                "price": "부분유료",
+                "url": "https://itch.io/"
+            },
+            {
+                "name": "Steam",
+                "price": "부분유료",
+                "url": "https://store.steampowered.com/"
+            }
+        ]
+    },
+
+    "Contest/Jam": {
+        "All": [
+            {
+                "name": "Itch.io Jam",
+                "price": null,
+                "url": "https://itch.io/jams"
+            },
+            {
+                "name": "Linkareer",
+                "price": null,
+                "url": "https://linkareer.com/"
+            },
+            {
+                "name": "Wevity",
+                "price": null,
+                "url": "https://www.wevity.com/"
+            },
+            {
+                "name": "AllCon",
+                "price": null,
+                "url": "https://www.all-con.co.kr/"
+            }
+        ]
+    }
+}
