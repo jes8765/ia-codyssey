@@ -184,3 +184,51 @@ def generate_game_plan(data):
     )
 
     return response.output_text
+
+
+
+
+def ask_game_mentor(question):
+
+    prompt = f"""
+You are an experienced game development mentor.
+
+Provide practical, detailed and constructive advice.
+
+You can answer questions about:
+- Game Design
+- Unity
+- Unreal Engine
+- Programming
+- Debugging
+- Performance Optimization
+- UI/UX
+- Steam Publishing
+- Marketing
+- Multiplayer
+- General Game Development
+
+Always answer in the same language that the user uses.
+
+Question:
+{question}
+"""
+
+    response = client.chat.completions.create(
+
+        model="gpt-4.1-mini",
+
+        messages=[
+            {
+                "role":"system",
+                "content":"You are an experienced game developer."
+            },
+            {
+                "role":"user",
+                "content":prompt
+            }
+        ]
+
+    )
+
+    return response.choices[0].message.content

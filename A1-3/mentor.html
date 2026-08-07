@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Game Mentor</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mentor.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <a href="index.html" class="logo">
+            GameForge AI
+        </a>
+
+        <nav class="nav">
+            <a href="planner.html">Planner</a>
+            <a href="resources.html">Resources</a>
+            <a href="mentor.html">Mentor</a>
+        </nav>
+
+    </div>
+
+</header>
+
+<main>
+
+    <div class="container">
+
+        <!-- 여기부터 방금 작성한 section -->
+
+        <section class="mentor">
+
+            <h1>Game Mentor</h1>
+
+            <p class="mentor-subtitle">
+                Ask AI for feedback, debugging and game development advice.
+            </p>
+
+            <div class="mentor-input">
+
+                <label>Your Question</label>
+
+                <textarea
+                    id="mentor-question"
+                    placeholder="Ask anything about your game..."
+                ></textarea>
+
+                <button id="mentor-btn">
+                    Ask Mentor
+                </button>
+
+            </div>
+
+            <div
+                id="mentor-result"
+                class="mentor-result hidden">
+
+                <h2>AI Answer</h2>
+
+                <div id="mentor-answer"></div>
+
+                <div class="mentor-actions">
+
+                    <button id="copy-btn">
+                        Copy
+                    </button>
+
+                    <button id="save-btn">
+                        Save
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+<script src="js/mentor.js"></script>
+
+</body>
+
+</html>

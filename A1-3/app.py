@@ -21,5 +21,18 @@ def generate():
         "result": result
     }
 
+@app.route("/mentor", methods=["POST"])
+def mentor():
+
+    data = request.json
+
+    question = data.get("question", "")
+
+    result = ask_game_mentor(question)
+
+    return jsonify({
+        "result": result
+    })
+
 if __name__ == "__main__":
     app.run(debug=True)

@@ -191,8 +191,8 @@ function createCards(data, container){
                 ${site.price}
             </p>
 
-            <p>
-                ${site.description ? `<p>${site.description}</p>` : ""}
+            <p class="resource-description">
+                ${site.description}
             </p>
 
             <a

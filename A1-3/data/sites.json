@@ -4,21 +4,25 @@
             {
                 "name": "ChatGPT",
                 "price": "부분유료",
+                "description": "아이디어 작성과 코딩을 지원하는 AI",
                 "url": "https://chatgpt.com/"
             },
             {
                 "name": "Cursor",
                 "price": "부분유료",
+                "description": "AI 기능이 내장된 코드 에디터",
                 "url": "https://cursor.com/"
             },
             {
                 "name": "Claude",
                 "price": "부분유료",
+                "description": "긴 문서 작성과 코딩에 강한 AI",
                 "url": "https://claude.com/"
             },
             {
                 "name": "Codex",
                 "price": "부분유료",
+                "description": "OpenAI의 AI 코드 생성 도구",
                 "url": "https://openai.com/ko-KR/codex/"
             }
         ],
@@ -27,21 +31,25 @@
             {
                 "name": "AI Pixel Art Generator",
                 "price": "무료",
+                "description": "AI 기반 픽셀아트 생성 서비스",
                 "url": "https://perchance.org/ai-pixel-art-generator"
             },
             {
                 "name": "ComfyUI",
                 "price": "부분유료",
+                "description": "노드 방식의 AI 이미지 생성 도구",
                 "url": "https://cloud.comfy.org/"
             },
             {
                 "name": "NanoBanana",
                 "price": "무료",
+                "description": "무료 AI 이미지 생성 플랫폼",
                 "url": "https://nano-banana.kr/"
             },
             {
                 "name": "Krea",
                 "price": "무료",
+                "description": "실시간 AI 이미지 제작 서비스",
                 "url": "https://www.krea.ai/realtime"
             }
         ],
@@ -50,6 +58,7 @@
             {
                 "name": "Suno",
                 "price": "부분유료",
+                "description": "AI로 음악을 생성하는 플랫폼",
                 "url": "https://suno.com/"
             }
         ]
@@ -61,26 +70,31 @@
             {
                 "name": "Unity Asset Store",
                 "price": "부분유료",
+                "description": "Unity 공식 게임 에셋 마켓",
                 "url": "https://assetstore.unity.com/"
             },
             {
                 "name": "Itch.io",
                 "price": "부분유료",
+                "description": "인디 게임과 무료 에셋 제공",
                 "url": "https://itch.io/c/5081481/free-asset"
             },
             {
                 "name": "CraftPix",
                 "price": "부분유료",
+                "description": "2D·3D 게임 에셋 다운로드",
                 "url": "https://craftpix.net/freebies/page/24/"
             },
             {
                 "name": "OpenGameArt",
                 "price": "무료",
+                "description": "무료 오픈소스 게임 에셋",
                 "url": "https://opengameart.org/"
             },
             {
                 "name": "Kenney",
                 "price": "무료",
+                "description": "상업적 이용 가능한 무료 에셋",
                 "url": "https://kenney.nl/assets"
             }
         ],
@@ -89,26 +103,31 @@
             {
                 "name": "Quaternius",
                 "price": "무료",
+                "description": "무료 저폴리곤 3D 에셋",
                 "url": "https://quaternius.com/"
             },
             {
                 "name": "PolyHaven",
                 "price": "무료",
+                "description": "HDRI와 3D 리소스 제공",
                 "url": "https://polyhaven.com/"
             },
             {
                 "name": "Sketchfab",
                 "price": "무료",
+                "description": "3D 모델 공유 플랫폼",
                 "url": "https://sketchfab.com/"
             },
             {
                 "name": "DevAssets",
                 "price": "무료",
+                "description": "게임 개발용 무료 에셋 모음",
                 "url": "https://devassets.com/browse/"
             },
             {
                 "name": "KayKit",
                 "price": "부분유료",
+                "description": "귀여운 스타일의 3D 에셋",
                 "url": "https://kaylousberg.itch.io/"
             }
         ],
@@ -117,6 +136,7 @@
             {
                 "name": "GameArt2D",
                 "price": "무료",
+                "description": "무료 2D 게임 그래픽 제공",
                 "url": "https://www.gameart2d.com/"
             }
         ],
@@ -125,16 +145,19 @@
             {
                 "name": "Game UI Database",
                 "price": "부분유료",
+                "description": "게임 UI 레퍼런스 모음",
                 "url": "https://www.gameuidatabase.com/"
             },
             {
                 "name": "Interface In Game",
                 "price": "부분유료",
+                "description": "실제 게임 UI 사례 제공",
                 "url": "https://interfaceingame.com/"
             },
             {
                 "name": "Behance",
                 "price": "부분유료",
+                "description": "디자이너 포트폴리오 플랫폼",
                 "url": "https://www.behance.net/tags/game-ui"
             }
         ],
@@ -143,21 +166,25 @@
             {
                 "name": "Freesound",
                 "price": "무료",
+                "description": "무료 효과음 공유 사이트",
                 "url": "https://freesound.org/"
             },
             {
                 "name": "Sonniss",
                 "price": "무료",
+                "description": "고품질 게임 오디오 무료 제공",
                 "url": "https://sonniss.com/gameaudiogdc/"
             },
             {
                 "name": "Pixabay",
                 "price": "부분유료",
+                "description": "무료 음악과 효과음 제공",
                 "url": "https://pixabay.com/sound-effects/"
             },
             {
                 "name": "Bensound",
                 "price": "무료",
+                "description": "배경음악(BGM) 라이브러리",
                 "url": "https://www.bensound.com/"
             }
         ],
@@ -166,16 +193,19 @@
             {
                 "name": "ZapSplat",
                 "price": "부분유료",
+                "description": "효과음 전문 다운로드 사이트",
                 "url": "https://www.zapsplat.com/"
             },
             {
                 "name": "Freesound",
                 "price": "무료",
+                "description": "무료 효과음 공유 사이트",
                 "url": "https://freesound.org/"
             },
             {
                 "name": "Mixkit",
                 "price": "무료",
+                "description": "무료 효과음과 영상 리소스",
                 "url": "https://mixkit.co/"
             }
         ]
@@ -186,16 +216,19 @@
             {
                 "name": "Noonnu",
                 "price": "무료",
+                "description": "무료 한글 폰트 제공",
                 "url": "https://noonnu.cc/"
             },
             {
                 "name": "Google Fonts",
                 "price": "무료",
+                "description": "무료 웹폰트 라이브러리",
                 "url": "https://fonts.google.com/"
             },
             {
                 "name": "FontStruct",
                 "price": "무료",
+                "description": "직접 폰트를 제작하는 서비스",
                 "url": "https://fontstruct.com/"
             }
         ]
@@ -206,11 +239,13 @@
             {
                 "name": "Unsplash",
                 "price": "부분유료",
+                "description": "고품질 무료 사진 제공",
                 "url": "https://unsplash.com/"
             },
             {
                 "name": "Pexels",
                 "price": "부분유료",
+                "description": "무료 사진과 영상 제공",
                 "url": "https://www.pexels.com/"
             }
         ]
@@ -221,11 +256,13 @@
             {
                 "name": "Artmug",
                 "price": null,
+                "description": "국내 아트 외주 플랫폼",
                 "url": "https://artmug.kr/"
             },
             {
                 "name": "Behance",
                 "price": null,
+                "description": "디자인 포트폴리오 검색",
                 "url": "https://www.behance.net/for_you"
             }
         ]
@@ -236,16 +273,19 @@
             {
                 "name": "Tumblbug",
                 "price": null,
+                "description": "국내 크라우드 펀딩 플랫폼",
                 "url": "https://tumblbug.com/"
             },
             {
                 "name": "Wadiz",
                 "price": null,
+                "description": "스타트업 펀딩 서비스",
                 "url": "https://www.wadiz.kr/"
             },
             {
                 "name": "Kickstarter",
                 "price": null,
+                "description": "글로벌 크라우드 펀딩",
                 "url": "https://www.kickstarter.com/"
             }
         ]
@@ -256,31 +296,37 @@
             {
                 "name": "Notion",
                 "price": null,
+                "description": "문서와 프로젝트 관리 도구",
                 "url": "https://www.notion.com/"
             },
             {
                 "name": "GitHub",
                 "price": null,
+                "description": "코드 저장 및 협업 플랫폼",
                 "url": "https://github.com/"
             },
             {
                 "name": "Reddit",
                 "price": null,
+                "description": "해외 개발자 커뮤니티",
                 "url": "https://www.reddit.com/"
             },
             {
                 "name": "YouTube",
                 "price": null,
+                "description": "게임 개발 강의와 영상",
                 "url": "https://www.youtube.com/"
             },
             {
                 "name": "NaverBlog",
                 "price": null,
+                "description": "국내 개발 정보 검색",
                 "url": "https://section.blog.naver.com/BlogHome.naver?directoryNo=0&currentPage=1&groupId=0"
             },
             {
                 "name": "Inditor",
                 "price": null,
+                "description": "인디 게임 개발자 커뮤니티",
                 "url": "https://cafe.naver.com/indiedev"
             }
         ]
@@ -291,16 +337,19 @@
             {
                 "name": "Unity Learn",
                 "price": "무료",
+                "description": "Unity 공식 학습 사이트",
                 "url": "https://learn.unity.com/"
             },
             {
                 "name": "CodeMonkey",
                 "price": "부분유료",
+                "description": "Unity 개발 강의 제공",
                 "url": "https://unitycodemonkey.com/"
             },
             {
                 "name": "Unity GoldMetal",
                 "price": "무료",
+                "description": "국내 Unity 강좌 블로그",
                 "url": "https://edumoa.tistory.com/"
             }
         ]
@@ -311,11 +360,13 @@
             {
                 "name": "Itch.io",
                 "price": "부분유료",
+                "description": "인디 게임 배포 플랫폼",
                 "url": "https://itch.io/"
             },
             {
                 "name": "Steam",
                 "price": "부분유료",
+                "description": "대표 PC 게임 플랫폼",
                 "url": "https://store.steampowered.com/"
             }
         ]
@@ -326,21 +377,25 @@
             {
                 "name": "Itch.io Jam",
                 "price": null,
+                "description": "게임잼 개최 플랫폼",
                 "url": "https://itch.io/jams"
             },
             {
                 "name": "Linkareer",
                 "price": null,
+                "description": "공모전 정보 검색 서비스",
                 "url": "https://linkareer.com/"
             },
             {
                 "name": "Wevity",
                 "price": null,
+                "description": "국내 공모전 모음 사이트",
                 "url": "https://www.wevity.com/"
             },
             {
                 "name": "AllCon",
                 "price": null,
+                "description": "대외활동·공모전 정보",
                 "url": "https://www.all-con.co.kr/"
             }
         ]

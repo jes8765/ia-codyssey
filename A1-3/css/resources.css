@@ -197,3 +197,27 @@ Empty
     font-size:18px;
 
 }
+
+.resource-price{
+
+    color:#2E8B57;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin:8px 0;
+
+}
+
+.resource-description{
+
+    color:#666;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+    margin-bottom:18px;
+
+}
