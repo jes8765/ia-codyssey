@@ -1,6 +1,6 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS
-from openai_service import generate_game_plan
+from openai_service import generate_game_plan, ask_game_mentor
 
 app = Flask(__name__)
 CORS(app)

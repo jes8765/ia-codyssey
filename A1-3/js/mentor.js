@@ -58,3 +58,26 @@ document
     }
 
 });
+
+// =========================
+// Quick Questions
+// =========================
+
+const quickQuestionButtons =
+    document.querySelectorAll(".quick-question-btn");
+
+const mentorQuestion =
+    document.getElementById("mentor-question");
+
+quickQuestionButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        mentorQuestion.value =
+            button.dataset.question;
+
+        mentorQuestion.focus();
+
+    });
+
+});
