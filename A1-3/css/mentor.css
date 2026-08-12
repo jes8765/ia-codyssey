@@ -214,3 +214,173 @@ main{
     color: #2E8B57;
     background: #f4faf6;
 }
+
+.saved-advice {
+    margin-top: 70px;
+
+    max-width: 960px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.saved-advice h2 {
+    margin-bottom: 25px;
+    margin-left: 4px;
+}
+
+/* 저장된 조언 카드 */
+.saved-advice-card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+
+/* 질문 */
+.saved-advice-question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.5;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+
+/* 날짜 */
+.saved-advice-date {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+
+/* 답변 */
+.saved-advice-answer {
+    background: #f8f8f8;
+    border-radius: 10px;
+    padding: 18px;
+
+    line-height: 1.7;
+
+    white-space: pre-wrap;
+    word-break: break-word;
+
+    /* 접힌 상태 */
+    max-height: 3.4em;
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition: max-height 0.3s ease;
+}
+
+
+/* 펼쳐진 상태 */
+.saved-advice-answer.expanded {
+    max-height: 2000px;
+}
+
+
+/* 답변 클릭 안내 */
+.saved-advice-answer::after {
+    content: "클릭하여 펼치기";
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 13px;
+    color: #2E8B57;
+}
+
+
+/* 펼쳐졌을 때 안내 문구 변경 */
+.saved-advice-answer.expanded::after {
+    content: "클릭하여 접기";
+}
+
+
+/* 삭제 버튼 */
+.saved-advice-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.delete-advice-btn {
+    padding: 8px 14px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #f1f1f1;
+    color: #666;
+
+    cursor: pointer;
+}
+
+.delete-advice-btn:hover {
+    background: #e5e5e5;
+}
+
+
+.empty-advice {
+    padding: 40px;
+
+    text-align: center;
+
+    color: #999;
+
+    background: #f8f8f8;
+
+    border-radius: 12px;
+}
+
+
+.delete-advice-btn {
+
+    padding: 8px 14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #f1f1f1;
+
+    color: #666;
+
+    cursor: pointer;
+
+}
+
+
+.delete-advice-btn:hover {
+
+    background: #e5e5e5;
+
+}
+
+
+.empty-advice {
+
+    padding: 40px;
+
+    text-align: center;
+
+    color: #999;
+
+    background: #f8f8f8;
+
+    border-radius: 12px;
+
+}
