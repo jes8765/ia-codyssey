@@ -179,7 +179,8 @@ document
     // AI 호출 예정
     try {
 
-    const response = await fetch("http://127.0.0.1:5000/generate", {
+    const response = await fetch(
+    "/api/planner", {
 
         method: "POST",
 
