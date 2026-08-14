@@ -68,3 +68,33 @@ ul {
 .secondary-btn:hover {
     background: #F3F3F3;
 }
+
+.header {
+    border-bottom: 1px solid #e5e5e5;
+    background: #faf9f6;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.gameforge-logo {
+    width: 250px;
+    height: auto;
+    display: block;
+    cursor: pointer;
+}
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #222;
+    font-size: 16px;
+}

@@ -15,31 +15,50 @@
 
 </head>
 
+
 <body>
 
 <header class="header">
 
     <div class="container">
 
-        <a href="index.html" class="logo">
-            GameForge AI
+        <a href="index.html">
+            <img
+                src="images/GameForge_AI_logo_transparent.png"
+                alt="GameForge AI"
+                class="gameforge-logo"
+            >
         </a>
 
         <nav class="nav">
-            <a href="planner.html">Planner</a>
-            <a href="resources.html">Resources</a>
-            <a href="mentor.html">Mentor</a>
+
+            <a href="planner.html">
+                Planner
+            </a>
+
+            <a href="resources.html">
+                Resources
+            </a>
+
+            <a href="mentor.html">
+                Mentor
+            </a>
+
         </nav>
 
     </div>
 
 </header>
 
+
 <main>
 
     <div class="container">
 
-        <!-- 여기부터 방금 작성한 section -->
+
+        <!-- =========================
+             Game Mentor
+        ========================== -->
 
         <section class="mentor">
 
@@ -49,57 +68,73 @@
                 Ask AI for feedback, debugging and game development advice.
             </p>
 
+
+            <!-- Question -->
+
             <div class="mentor-input">
 
-    <label>Your Question</label>
+                <label for="mentor-question">
+                    Your Question
+                </label>
 
-    <textarea
-        id="mentor-question"
-        placeholder="Ask anything about your game..."
-    ></textarea>
+                <textarea
+                    id="mentor-question"
+                    placeholder="Ask anything about your game..."
+                ></textarea>
 
-    <!-- Quick Questions -->
-    <div class="quick-questions">
 
-        <p>Try asking</p>
+                <!-- Quick Questions -->
 
-        <div class="quick-question-buttons">
+                <div class="quick-questions">
 
-            <button
-                class="quick-question-btn"
-                data-question="이 게임의 핵심 플레이 루프를 검토하고 개선할 점을 알려줘.">
-                기획 피드백
-            </button>
+                    <p>Try asking</p>
 
-            <button
-                class="quick-question-btn"
-                data-question="Unity에서 발생한 오류의 원인과 해결 방법을 알려줘.">
-                Unity 디버깅
-            </button>
+                    <div class="quick-question-buttons">
 
-            <button
-                class="quick-question-btn"
-                data-question="게임의 전투 밸런스를 검토하고 개선할 방법을 제안해줘.">
-                밸런스
-            </button>
+                        <button
+                            class="quick-question-btn"
+                            data-question="이 게임의 핵심 플레이 루프를 검토하고 개선할 점을 알려줘.">
+                            기획 피드백
+                        </button>
 
-            <button
-                class="quick-question-btn"
-                data-question="현재 게임 아이디어를 바탕으로 추가하면 좋을 요소를 제안해줘.">
-                아이디어 보강
-            </button>
 
-        </div>
+                        <button
+                            class="quick-question-btn"
+                            data-question="Unity에서 발생한 오류의 원인과 해결 방법을 알려줘.">
+                            Unity 디버깅
+                        </button>
 
-    </div>
 
-    <button id="mentor-btn">
-        Ask Mentor
-    </button>
+                        <button
+                            class="quick-question-btn"
+                            data-question="게임의 전투 밸런스를 검토하고 개선할 방법을 제안해줘.">
+                            밸런스
+                        </button>
 
-</div>
+
+                        <button
+                            class="quick-question-btn"
+                            data-question="현재 게임 아이디어를 바탕으로 추가하면 좋을 요소를 제안해줘.">
+                            아이디어 보강
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Ask Button -->
+
+                <button id="mentor-btn">
+                    Ask Mentor
+                </button>
 
             </div>
+
+
+            <!-- =========================
+                 AI Answer
+            ========================== -->
 
             <div
                 id="mentor-result"
@@ -107,13 +142,16 @@
 
                 <h2>AI Answer</h2>
 
+
                 <div id="mentor-answer"></div>
+
 
                 <div class="mentor-actions">
 
                     <button id="copy-btn">
                         Copy
                     </button>
+
 
                     <button id="save-btn">
                         Save
@@ -122,22 +160,91 @@
                 </div>
 
             </div>
-            <!-- 여기부터 추가 -->
 
-    <div class="saved-advice">
+        </section>
 
-        <h2>Saved Advice</h2>
 
-        <div id="saved-advice-list"></div>
+        <!-- =========================
+             Saved Advice
+        ========================== -->
 
-    </div>
-            
+        <section class="saved-advice">
+
+            <h2>Saved Advice</h2>
+
+
+            <!-- Tag Filter -->
+
+            <div class="saved-advice-filter">
+
+                <button
+                    class="tag-filter active"
+                    data-tag="all">
+                    All
+                </button>
+
+
+                <button
+                    class="tag-filter"
+                    data-tag="기획">
+                    기획
+                </button>
+
+
+                <button
+                    class="tag-filter"
+                    data-tag="Unity">
+                    Unity
+                </button>
+
+
+                <button
+                    class="tag-filter"
+                    data-tag="디버깅">
+                    디버깅
+                </button>
+
+
+                <button
+                    class="tag-filter"
+                    data-tag="최적화">
+                    최적화
+                </button>
+
+
+                <button
+                    class="tag-filter"
+                    data-tag="밸런스">
+                    밸런스
+                </button>
+
+
+                <button
+                    class="tag-filter"
+                    data-tag="UI/UX">
+                    UI/UX
+                </button>
+
+
+                <button
+                    class="tag-filter"
+                    data-tag="아이디어">
+                    아이디어
+                </button>
+
+            </div>
+
+
+            <!-- Saved Advice List -->
+
+            <div id="saved-advice-list"></div>
 
         </section>
 
     </div>
 
 </main>
+
 
 <script src="js/mentor.js"></script>
 
