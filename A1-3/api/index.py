@@ -8,6 +8,13 @@ from openai_service import generate_game_plan, ask_game_mentor
 
 app = Flask(__name__)
 
+@app.route("/api/test", methods=["GET"])
+def test():
+    return jsonify({
+        "status": "ok",
+        "message": "GameForge AI API is running"
+    })
+
 
 # =========================
 # Planner API
