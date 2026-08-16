@@ -8,7 +8,11 @@ from openai_service import generate_game_plan, ask_game_mentor
 
 app = Flask(__name__)
 
-@app.route("/test", methods=["GET"])
+@app.route("/")
+def home():
+    return "GameForge AI Backend Running!"
+
+@app.route("/api/test", methods=["GET"])
 def test():
     return jsonify({
         "status": "ok",
@@ -20,7 +24,7 @@ def test():
 # Planner API
 # =========================
 
-@app.route("/planner", methods=["POST"])
+@app.route("/api/planner", methods=["POST"])
 def planner():
 
     try:
@@ -50,7 +54,7 @@ def planner():
 # Mentor API
 # =========================
 
-@app.route("/mentor", methods=["POST"])
+@app.route("/api/mentor", methods=["POST"])
 def mentor():
 
     try:
