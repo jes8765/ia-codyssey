@@ -6,17 +6,12 @@ from openai import OpenAI
 
 app = Flask(__name__)
 
-
 client = OpenAI(
     api_key=os.getenv("OPENAI_API_KEY")
 )
 
 MODEL = os.getenv("OPENAI_MODEL", "gpt-5-mini")
 
-
-# =========================
-# Planner
-# =========================
 
 def generate_game_plan(data):
 
@@ -34,58 +29,46 @@ def generate_game_plan(data):
 
 참고 게임은 분위기와 시스템만 참고하며,
 기존 게임을 복사하지 말고 새로운 게임으로 재해석하세요.
-참고 게임의 핵심 시스템을 분석하여 적절히 재해석하라.
+참고 게임의 핵심 시스템을 분석하여 적절히 재해석하세요.
 
 ---
 
 # User Input
 
 ## Genre
-
 {", ".join(data.get("genre", []))}
 
 ## Game Features
-
 {", ".join(data.get("features", []))}
 
 ## Game Mode
-
 {", ".join(data.get("mode", []))}
 
 ## Perspective
-
 {", ".join(data.get("perspective", []))}
 
 ## Mood
-
 {", ".join(data.get("mood", []))}
 
 ## Art Style
-
 {", ".join(data.get("artStyle", []))}
 
 ## Platform
-
 {", ".join(data.get("platform", []))}
 
 ## Core Mechanics
-
 {", ".join(data.get("mechanics", []))}
 
 ## Game Concept
-
 {data.get("concept")}
 
 ## Story
-
 {data.get("story")}
 
 ## Reference Games
-
 {data.get("reference")}
 
 ## Additional Requests
-
 {data.get("request")}
 
 ---
@@ -115,8 +98,6 @@ def generate_game_plan(data):
 - 타겟 유저
 - 플랫폼
 
----
-
 # 2. 핵심 게임플레이
 
 - 핵심 플레이
@@ -124,31 +105,21 @@ def generate_game_plan(data):
 - 탐험
 - 멀티플레이
 
----
-
 # 3. 주요 시스템
 
 5~10개의 핵심 시스템을 설명한다.
-
----
 
 # 4. 플레이 루프
 
 번호를 사용하여 작성한다.
 
----
-
 # 5. 수익 모델
 
 장르에 맞는 현실적인 BM을 제안한다.
 
----
-
 # 6. 차별화 요소
 
 최소 5가지 작성한다.
-
----
 
 # 7. 개발 난이도
 
@@ -158,8 +129,6 @@ def generate_game_plan(data):
 | 예상 개발 기간 | |
 | 추천 개발 인원 | |
 | 가장 어려운 기술 | |
-
----
 
 # 8. AI Feedback
 
@@ -184,67 +153,8 @@ def generate_game_plan(data):
 사용자가 입력한 내용을 가장 중요하게 생각하세요.
 """
 
-    response = client.responses.create(
-        model=MODEL,
-        input=prompt
-    )
 
-    return response.output_text
-
-
-# =========================
-# Mentor
-# =========================
-
-def ask_game_mentor(question):
-
-    system_prompt = """
-You are a senior game development mentor with expertise in:
-
-- Game Design
-- Unity
-- Unreal Engine
-- Programming
-- Debugging
-- Performance Optimization
-- UI/UX
-- Steam Publishing
-- Marketing
-- Multiplayer
-- Indie Game Development
-
-Provide practical, detailed and constructive advice.
-
-Analyze the user's question from the perspective of
-game development and give advice that can actually be applied.
-
-Always answer in the same language as the user's question.
-
-Do not add unnecessary greetings or introductions.
-"""
-
-    response = client.responses.create(
-        model=MODEL,
-        input=[
-            {
-                "role": "system",
-                "content": system_prompt
-            },
-            {
-                "role": "user",
-                "content": question
-            }
-        ]
-    )
-
-    return response.output_text
-
-
-# =========================
-# Planner API
-# =========================
-
-@app.route("/api/planner", methods=["POST"])
+@app.route("/", methods=["POST"])
 def planner():
 
     try:
@@ -268,42 +178,4 @@ def planner():
 
         return jsonify({
             "error": "Failed to generate game plan"
-        }), 500
-
-
-# =========================
-# Mentor API
-# =========================
-
-@app.route("/api/mentor", methods=["POST"])
-def mentor():
-
-    try:
-
-        data = request.get_json()
-
-        if not data:
-            return jsonify({
-                "error": "Request data is required"
-            }), 400
-
-        question = data.get("question", "").strip()
-
-        if not question:
-            return jsonify({
-                "error": "Question is required"
-            }), 400
-
-        result = ask_game_mentor(question)
-
-        return jsonify({
-            "result": result
-        })
-
-    except Exception as e:
-
-        print("Mentor API Error:", e)
-
-        return jsonify({
-            "error": "Failed to generate mentor response"
         }), 500
