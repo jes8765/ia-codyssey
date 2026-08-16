@@ -14,6 +14,7 @@ app = Flask(__name__)
 # =========================
 
 @app.route("/api/planner", methods=["POST"])
+@app.route("/planner", methods=["POST"])
 def planner():
 
     try:
@@ -44,6 +45,7 @@ def planner():
 # =========================
 
 @app.route("/api/mentor", methods=["POST"])
+@app.route("/mentor", methods=["POST"])
 def mentor():
 
     try:
