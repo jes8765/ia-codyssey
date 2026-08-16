@@ -5,14 +5,32 @@ from openai import OpenAI
 
 from openai_service import generate_game_plan, ask_game_mentor
 
+
+# A1-3 폴더 경로
+BASE_DIR = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..")
+)
+
 app = Flask(__name__)
+
+
+# =========================
+# Frontend
+# =========================
 
 @app.route("/")
 def home():
-    return send_from_directory(
-        os.path.join(os.path.dirname(__file__), ".."),
-        "index.html"
-    )
+    return send_from_directory(BASE_DIR, "index.html")
+
+
+@app.route("/<path:filename>")
+def frontend(filename):
+    return send_from_directory(BASE_DIR, filename)
+
+
+# =========================
+# API Test
+# =========================
 
 @app.route("/api/test", methods=["GET"])
 def test():
@@ -20,6 +38,7 @@ def test():
         "status": "ok",
         "message": "GameForge AI API is running"
     })
+
 
 # =========================
 # Planner API
