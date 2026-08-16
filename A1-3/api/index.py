@@ -1,16 +1,18 @@
 import os
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from openai import OpenAI
 
 from openai_service import generate_game_plan, ask_game_mentor
-
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "GameForge AI Backend Running!"
+    return send_from_directory(
+        os.path.join(os.path.dirname(__file__), ".."),
+        "index.html"
+    )
 
 @app.route("/api/test", methods=["GET"])
 def test():
@@ -18,7 +20,6 @@ def test():
         "status": "ok",
         "message": "GameForge AI API is running"
     })
-
 
 # =========================
 # Planner API
