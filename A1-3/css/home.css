@@ -210,37 +210,112 @@
     display: block;
 }
 
+
+
 /* ===========================
-   Mobile Responsive
+   Mobile
 =========================== */
 
 @media (max-width: 768px) {
+
+    /* Header */
+    .header {
+        padding: 10px 0;
+    }
+
+    .header .container {
+        height: auto;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .gameforge-logo {
+        width: 190px;
+    }
+
+    .nav {
+        gap: 28px;
+    }
+
+    .nav a {
+        font-size: 16px;
+    }
+
+
+    /* Hero */
     .hero {
         padding: 50px 0;
     }
 
     .hero .container {
         flex-direction: column;
-        gap: 40px;
+        gap: 35px;
+    }
+
+    .hero-content {
+        width: 100%;
     }
 
     .hero h1 {
         font-size: 48px;
+        line-height: 1.15;
     }
 
+    .hero-description {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+
+    /* Hero Image */
     .hero-image {
         width: 100%;
-        height: 260px;
-        flex: none;
-        overflow: hidden;
+        height: auto;
+        min-height: 0;
+
+        padding: 20px;
+
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
+    .hero-image img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        object-fit: contain;
+        display: block;
+    }
+
+
+    /* Buttons */
+    .hero-buttons {
+        gap: 12px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        padding: 13px 20px;
+    }
+
+
+    /* Features */
     .features {
-        padding: 70px 0;
+        padding: 60px 0;
+    }
+
+    .section-title h2 {
+        font-size: 36px;
     }
 
     .feature-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
+
+    .feature-card {
+        padding: 28px;
+    }
+
 }
