@@ -98,3 +98,34 @@ ul {
     color: #222;
     font-size: 16px;
 }
+
+/* ===========================
+   Mobile Responsive
+=========================== */
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .header .container {
+        height: auto;
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px 0;
+    }
+
+    .gameforge-logo {
+        width: 180px;
+    }
+
+    .nav {
+        gap: 24px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav a {
+        font-size: 14px;
+    }
+}

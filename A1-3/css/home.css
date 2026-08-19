@@ -209,3 +209,38 @@
 
     display: block;
 }
+
+/* ===========================
+   Mobile Responsive
+=========================== */
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 50px 0;
+    }
+
+    .hero .container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 260px;
+        flex: none;
+        overflow: hidden;
+    }
+
+    .features {
+        padding: 70px 0;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
