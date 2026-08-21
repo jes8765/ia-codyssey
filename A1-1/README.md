@@ -20,7 +20,7 @@ Python의 기본 문법(변수, 조건문, 반복문, 함수, 클래스)을 활�
 |---|---|
 |Language|Python 3.12|
 |Editor|Visual Studio Code|
-|Version Control|Git / GitHub|
+|Version Control|Git git version 2.53.0 / GitHub|
 |OS|macOS|
 
 ---
