@@ -90,7 +90,7 @@ M1-1/
 ├── REPORT.md
 ├── README.md
 └── requirements.txt
-```text
+```
 
 ## 7. 실행 환경
 
