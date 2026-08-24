@@ -77,6 +77,7 @@
 
 ## 6. 프로젝트 구조
 
+```text
 M1-1/
 ├── data/
 │   └── stock_data.csv
@@ -89,6 +90,7 @@ M1-1/
 ├── REPORT.md
 ├── README.md
 └── requirements.txt
+```text
 
 ## 7. 실행 환경
 
