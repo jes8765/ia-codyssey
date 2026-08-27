@@ -1,0 +1,15 @@
+# Environment
+.env
+backend/.env
+
+# Firebase service account key
+backend/firebase-key.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+backend/.venv/
+
+# macOS
+.DS_Store
