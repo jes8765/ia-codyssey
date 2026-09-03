@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockMate - NVDA AI Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 사이드바 -->
+        <nav class="sidebar">
+            <div class="logo">✦ StockMate</div>
+            <ul class="nav-links">
+                <li data-target="overview" class="active">◉ Overview</li>
+                <li data-target="chat">✦ AI Chat</li>
+                <li data-target="data">◫ Data</li>
+                <li data-target="history">◎ History</li>
+            </ul>
+        </nav>
+
+        <!-- 메인 컨텐츠 영역 -->
+        <main class="main-content">
+            <!-- 1. Overview 화면 -->
+           <section id="overview" class="page-section active">
+    <h1>NVIDIA (NVDA) ▼</h1>
+    <p class="greeting">Good afternoon.<br>Here's what's happening with NVDA.</p>
+
+    <div class="card main-price-card">
+        <div class="card-header">
+            <span>NVIDIA</span>
+            <span class="trend up">+2.34% ▲</span>
+        </div>
+        <div class="price">$174.52</div>
+        <div class="chart-placeholder">PRICE CHART</div>
+    </div>
+
+    <div class="metrics-grid">
+        <div class="card metric-card">
+            <div class="metric-label">Average</div>
+            <div class="metric-value" id="summary-avg">--</div>
+        </div>
+        <div class="card metric-card">
+            <div class="metric-label">Highest</div>
+            <div class="metric-value" id="summary-max">--</div>
+        </div>
+        <div class="card metric-card">
+            <div class="metric-label">Lowest</div>
+            <div class="metric-value" id="summary-min">--</div>
+        </div>
+    </div>
+
+    <div class="card insight-card">
+        <div class="insight-header">✦ AI Insight</div>
+        <p>Recent price movement shows an upward trend...</p>
+        <button class="text-btn">Ask AI →</button>
+    </div>
+</section>
+
+            <!-- 2. AI Chat 화면 -->
+            <section id="chat" class="page-section hidden">
+    <h1>AI Assistant</h1>
+    <p class="greeting">Ask anything about your stock data.</p>
+
+    <div class="chat-container">
+        <!-- 메시지가 쌓이는 영역 -->
+        <div class="chat-messages" id="chat-messages">
+            <div class="message ai-message">
+                <div class="message-sender">✦ StockMate AI</div>
+                <div class="message-bubble">
+                    I can analyze your NVDA price data.<br>What would you like to know?
+                </div>
+            </div>
+        </div>
+
+        <!-- 로딩 표시 (기본 숨김) -->
+        <div class="chat-loading" id="chat-loading" style="display: none;">
+            <span>StockMate AI is thinking...</span>
+        </div>
+
+        <!-- 입력 폼 -->
+        <form class="chat-input-form" id="chat-form">
+            <input type="text" id="chat-input" placeholder="Ask about NVDA..." autocomplete="off" required>
+            <button type="submit" class="chat-submit-btn">➤</button>
+        </form>
+    </div>
+</section>
+
+            <!-- 3. Data 화면 (아코디언) -->
+            <section id="data" class="page-section hidden">
+    <div class="section-header">
+        <h1>NVDA Price Data</h1>
+        <button id="open-modal-btn">+ Add</button>
+    </div>
+    
+    <!-- 데이터 목록이 동적으로 주입될 아코디언 영역 -->
+    <div class="data-list-container" id="data-list">
+        <!-- JS로 동적 생성 -->
+    </div>
+
+    <!-- 데이터 추가 모달 -->
+    <div class="modal-overlay" id="add-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Price Data</h3>
+                <button id="close-modal-btn" class="close-btn">×</button>
+            </div>
+            <form id="add-data-form">
+                <label>Date</label>
+                <input type="date" id="input-date" required>
+                
+                <label>Close Price ($)</label>
+                <input type="number" step="0.01" id="input-value" required>
+                
+                <label>Memo</label>
+                <input type="text" id="input-memo" placeholder="NVIDIA Close">
+                
+                <div class="modal-buttons">
+                    <button type="button" id="cancel-btn" class="secondary-btn">Cancel</button>
+                    <button type="submit" class="primary-btn">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+            <!-- 4. History 화면 (아코디언) -->
+            <section id="history" class="page-section hidden">
+    <h1>Conversations</h1>
+    <p class="greeting">View your past AI chat sessions.</p>
+    
+    <div class="history-list-container" id="history-list">
+        <!-- JS로 동적 생성 -->
+    </div>
+</section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
