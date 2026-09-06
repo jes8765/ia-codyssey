@@ -1,3 +1,5 @@
+const API_BASE_URL = "https://ia-codyssey-1.onrender.com";
+
 document.addEventListener("DOMContentLoaded", () => {
     const navItems = document.querySelectorAll(".nav-links li");
     const sections = document.querySelectorAll(".page-section");
