@@ -1,20 +1,19 @@
-import json
 import os
+from firebase_admin import credentials, initialize_app, firestore
 
-import firebase_admin
-from firebase_admin import credentials, firestore
-from dotenv import load_dotenv
+secret_file_path = "/etc/secrets/Firebase-key.json"
+local_file_path = "./firebase-key.json"
 
+if os.path.exists(secret_file_path):
+    cred = credentials.Certificate(secret_file_path)
+elif os.path.exists(local_file_path):
+    cred = credentials.Certificate(local_file_path)
+else:
+    raise FileNotFoundError("Firebase key file not found.")
 
-load_dotenv()
-
-firebase_key_path = os.getenv("FIREBASE_SERVICE_ACCOUNT_JSON")
-
-if not firebase_key_path:
-    raise ValueError("FIREBASE_SERVICE_ACCOUNT_JSON 환경변수가 설정되지 않았습니다.")
-
-if not firebase_admin._apps:
-    cred = credentials.Certificate(firebase_key_path)
-    firebase_admin.initialize_app(cred)
+try:
+    initialize_app(cred)
+except ValueError:
+    pass
 
 db = firestore.client()
