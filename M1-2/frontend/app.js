@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Summary API 호출 및 데이터 주입 로직
     async function loadSummaryData() {
         try {
-            const response = await fetch("http://127.0.0.1:8000/api/data/summary");
+            const response = await fetch(`${API_BASE_URL}/api/data/summary`);
             const data = await response.json();
 
             if (data.metrics) {
@@ -55,7 +55,7 @@ const addDataForm = document.getElementById("add-data-form");
 // 1. Data 목록 불러오기 및 렌더링
 async function loadPriceData() {
     try {
-        const response = await fetch("http://127.0.0.1:8000/api/data");
+        const response = await fetch(`${API_BASE_URL}/api/data`);
         const items = await response.json();
 
         dataListContainer.innerHTML = "";
@@ -104,7 +104,7 @@ async function loadPriceData() {
 // 2. 데이터 삭제 함수
 async function deleteData(id) {
     try {
-        await fetch(`http://127.0.0.1:8000/api/data/${id}`, {
+        await fetch(`${API_BASE_URL}/api/data/${id}`, {
             method: "DELETE"
         });
         loadPriceData(); // 목록 새로고침
@@ -133,7 +133,7 @@ addDataForm.addEventListener("submit", async (e) => {
     };
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/api/data", {
+        const response = await fetch(`${API_BASE_URL}/api/data`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newData)
@@ -177,7 +177,7 @@ chatForm.addEventListener("submit", async (e) => {
 
     try {
         // 3. 백엔드 /api/chat 호출
-        const response = await fetch("http://127.0.0.1:8000/api/chat", {
+        const response = await fetch(`${API_BASE_URL}/api/chat`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ message: userText })
@@ -218,7 +218,7 @@ const historyListContainer = document.getElementById("history-list");
 
 async function loadConversations() {
     try {
-        const response = await fetch("http://127.0.0.1:8000/api/conversations");
+        const response = await fetch(`${API_BASE_URL}/api/conversations`);
         const conversations = await response.json();
 
         historyListContainer.innerHTML = "";
