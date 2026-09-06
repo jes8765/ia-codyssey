@@ -1,3 +1,4 @@
+from datetime import datetime
 from firebase.client import db
 
 def get_all_data():
@@ -11,8 +12,17 @@ def get_all_data():
             **data,
         })
 
-    # 에러 수정 부분: date 필드가 없어도 에러가 나지 않도록 get() 사용
-    result.sort(key=lambda x: x.get("date", ""), reverse=True)
+    # 날짜 문자열을 파이썬 datetime 객체로 변환하여 최신순(내림차순) 정렬
+    def parse_date(item):
+        date_str = item.get("date", "")
+        for fmt in ("%Y-%m-%d", "%m/%d/%Y", "%Y/%m/%d"):
+            try:
+                return datetime.strptime(date_str, fmt)
+            except ValueError:
+                continue
+        return datetime.min # 변환 실패 시 가장 오래된 날짜로 취급
+
+    result.sort(key=parse_date, reverse=True)
 
     return result
 
