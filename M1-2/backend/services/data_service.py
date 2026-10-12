@@ -42,24 +42,53 @@ def delete_data(doc_id: str):
     db.collection("data").document(doc_id).delete()
     return {"message": "Deleted successfully"}
 
+
 def get_data_summary():
-    docs = db.collection("data").stream()
-    values = []
-    
-    for doc in docs:
-        data = doc.to_dict()
-        if "value" in data:
-            values.append(float(data["value"]))
-            
-    if not values:
-        return {"count": 0, "metrics": {}}
-        
+    data = get_all_data()
+
+    # 숫자로 변환할 수 있는 종가만 사용
+    valid_data = []
+
+    for item in data:
+        try:
+            price = float(item["value"])
+            valid_data.append({**item, "value": price})
+        except (KeyError, TypeError, ValueError):
+            continue
+
+    if not valid_data:
+        return {
+            "count": 0,
+            "metrics": {},
+            "trend": "분석할 데이터가 없습니다."
+        }
+
+    prices = [item["value"] for item in valid_data]
+
+    # 최신 데이터부터 정렬되어 있으므로 최근 7개와
+    # 그 이전 7개의 평균을 비교합니다.
+    recent = prices[:7]
+    previous = prices[7:14]
+
+    if len(previous) < 7:
+        trend = "비교 데이터 부족"
+    else:
+        recent_avg = sum(recent) / len(recent)
+        previous_avg = sum(previous) / len(previous)
+
+        if recent_avg > previous_avg:
+            trend = "최근 7개 데이터 평균이 이전 7개보다 상승"
+        elif recent_avg < previous_avg:
+            trend = "최근 7개 데이터 평균이 이전 7개보다 하락"
+        else:
+            trend = "최근 7개 데이터 평균에 변화 없음"
+
     return {
-        "count": len(values),
+        "count": len(valid_data),
         "metrics": {
-            "average": round(sum(values) / len(values), 2),
-            "max": round(max(values), 2),
-            "min": round(min(values), 2)
+            "average": round(sum(prices) / len(prices), 2),
+            "max": round(max(prices), 2),
+            "min": round(min(prices), 2)
         },
-        "trend": "상승 추세 유지 중"
+        "trend": trend
     }
