@@ -58,9 +58,17 @@
 </section>
 
             <!-- 2. AI Chat 화면 -->
-            <section id="chat" class="page-section hidden">
-    <h1>AI Assistant</h1>
-    <p class="greeting">Ask anything about your stock data.</p>
+            
+<section id="chat" class="page-section hidden">
+    <div class="chat-header">
+        <div>
+            <h1>AI Assistant</h1>
+            <p class="greeting">Ask anything about your stock data.</p>
+        </div>
+        <button id="new-chat-btn" type="button" class="new-chat-btn">
+            + 새 대화
+        </button>
+    </div>
 
     <div class="chat-container">
         <!-- 메시지가 쌓이는 영역 -->
@@ -68,19 +76,26 @@
             <div class="message ai-message">
                 <div class="message-sender">✦ StockMate AI</div>
                 <div class="message-bubble">
-                    I can analyze your NVDA price data.<br>What would you like to know?
+                    I can analyze your NVDA price data.<br>
+                    What would you like to know?
                 </div>
             </div>
         </div>
 
-        <!-- 로딩 표시 (기본 숨김) -->
+        <!-- 로딩 표시 -->
         <div class="chat-loading" id="chat-loading" style="display: none;">
             <span>StockMate AI is thinking...</span>
         </div>
 
         <!-- 입력 폼 -->
         <form class="chat-input-form" id="chat-form">
-            <input type="text" id="chat-input" placeholder="Ask about NVDA..." autocomplete="off" required>
+            <input
+                type="text"
+                id="chat-input"
+                placeholder="Ask about NVDA..."
+                autocomplete="off"
+                required
+            >
             <button type="submit" class="chat-submit-btn">➤</button>
         </form>
     </div>

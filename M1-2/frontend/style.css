@@ -385,3 +385,34 @@ button:hover {
     align-items: center;
     justify-content: center;
 }
+
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.chat-header h1 {
+    margin-bottom: 8px;
+}
+
+.chat-header .greeting {
+    margin-top: 0;
+}
+
+.new-chat-btn {
+    padding: 10px 16px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    background: #1a1a1a;
+    color: #b6ff5c;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.new-chat-btn:hover {
+    background: #252525;
+}

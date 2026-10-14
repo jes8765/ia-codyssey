@@ -161,6 +161,32 @@ const chatForm = document.getElementById("chat-form");
 const chatInput = document.getElementById("chat-input");
 const chatMessages = document.getElementById("chat-messages");
 const chatLoading = document.getElementById("chat-loading");
+let activeConversationId = null;
+
+// 새 대화 시작 버튼
+const newChatBtn = document.getElementById("new-chat-btn");
+
+newChatBtn.addEventListener("click", () => {
+    // 기존 대화와 연결 해제
+    activeConversationId = null;
+
+    // 채팅 화면 초기화
+    chatMessages.innerHTML = "";
+
+    // 새 대화 안내 메시지 표시
+    appendMessage(
+        "안녕하세요! StockMate AI입니다. 주가 데이터에 관해 궁금한 점을 질문해 주세요.",
+        "ai-message",
+        "✦ StockMate AI"
+    );
+
+    // 입력창 초기화
+    chatInput.value = "";
+    chatInput.focus();
+
+    // 로딩 표시 제거
+    chatLoading.style.display = "none";
+});
 
 chatForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -172,18 +198,24 @@ chatForm.addEventListener("submit", async (e) => {
     chatInput.value = "";
     chatMessages.scrollTop = chatMessages.scrollHeight;
 
-    // 2. 로딩 표시 켜기
-    chatLoading.style.display = "block";
+    
+
 
     try {
         // 3. 백엔드 /api/chat 호출
         const response = await fetch(`${API_BASE_URL}/api/chat`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message: userText })
+            body: JSON.stringify({
+                message: userText,
+                conversation_id: activeConversationId
+    })
         });
 
         const data = await response.json();
+        if (data.conversation_id) {
+            activeConversationId = data.conversation_id;
+   }
 
         // 4. 로딩 표시 끄기 및 AI 답변 추가
         chatLoading.style.display = "none";
@@ -216,70 +248,170 @@ function appendMessage(text, className, senderName) {
 // --- History 탭 관리 로직 ---
 const historyListContainer = document.getElementById("history-list");
 
+// 대화 기록 목록 불러오기
 async function loadConversations() {
     try {
         const response = await fetch(`${API_BASE_URL}/api/conversations`);
-        const conversations = await response.json();
 
+        if (!response.ok) {
+            throw new Error("대화 기록을 불러오지 못했습니다.");
+        }
+
+        const conversations = await response.json();
         historyListContainer.innerHTML = "";
 
-        if (conversations.length === 0) {
-            historyListContainer.innerHTML = `<p style="color: var(--text-secondary);">저장된 대화 기록이 없습니다.</p>`;
+        if (!Array.isArray(conversations) || conversations.length === 0) {
+            historyListContainer.innerHTML =
+                `<p style="color: var(--text-secondary);">저장된 대화 기록이 없습니다.</p>`;
             return;
         }
 
-        conversations.forEach((conv, index) => {
+        conversations.forEach((conv) => {
             const row = document.createElement("div");
-            row.className = "data-row"; // 기존 Data 탭의 아코디언 스타일 재사용
-            
-            // 첫 번째 질문 내용을 제목으로 요약 사용
-            const firstMsg = conv.messages && conv.messages.length > 0 ? conv.messages[0].content : "대화 내용";
-            const msgCount = conv.messages ? conv.messages.length : 0;
-            const timeStr = conv.timestamp ? conv.timestamp.replace("T", " ").substring(0, 16) : "";
+            row.className = "data-row";
 
-            // 메시지 목록 HTML 생성
+            const conversationId = conv.id || conv.conversation_id;
+            const messages = Array.isArray(conv.messages) ? conv.messages : [];
+
+            const firstUserMessage =
+                messages.find(message => message.role === "user")?.content
+                || "대화 내용";
+
+            const timeStr = conv.timestamp
+                ? conv.timestamp.replace("T", " ").substring(0, 16)
+                : "";
+
             let messagesHtml = "";
-            if (conv.messages) {
-                conv.messages.forEach(m => {
-                    const isUser = m.role === "user";
-                    messagesHtml = messagesHtml + `
-                        <div style="margin-bottom: 12px; text-align: ${isUser ? 'right' : 'left'};">
-                            <span style="font-size: 0.75rem; color: var(--text-secondary); display: block; margin-bottom: 2px;">${isUser ? 'You' : 'StockMate AI'}</span>
-                            <div style="display: inline-block; padding: 10px 14px; border-radius: 10px; background-color: ${isUser ? 'var(--accent-color)' : ' var(--card-bg)'}; color: ${isUser ? '#000' : 'var(--text-main)'}; text-align: left; max-width: 85%; font-size: 0.9rem;">
-                                ${m.content.replace(/\n/g, '<br>')}
-                            </div>
-                        </div>
-                    `;
-                });
-            }
+
+            messages.forEach((message) => {
+                const isUser = message.role === "user";
+                const messageDiv = document.createElement("div");
+
+                messageDiv.style.cssText = `
+                    margin-bottom: 12px;
+                    text-align: ${isUser ? "right" : "left"};
+                `;
+
+                const sender = document.createElement("span");
+                sender.textContent = isUser ? "You" : "StockMate AI";
+                sender.style.cssText = `
+                    font-size: 0.75rem;
+                    color: var(--text-secondary);
+                    display: block;
+                    margin-bottom: 2px;
+                `;
+
+                const bubble = document.createElement("div");
+                bubble.textContent = message.content || "";
+                bubble.style.cssText = `
+                    display: inline-block;
+                    padding: 10px 14px;
+                    border-radius: 10px;
+                    background-color: ${isUser
+                        ? "var(--accent-color)"
+                        : "var(--card-bg)"};
+                    color: ${isUser ? "#000" : "var(--text-main)"};
+                    text-align: left;
+                    max-width: 85%;
+                    font-size: 0.9rem;
+                    white-space: pre-wrap;
+                    overflow-wrap: anywhere;
+                `;
+
+                messageDiv.append(sender, bubble);
+                messagesHtml += messageDiv.outerHTML;
+            });
 
             row.innerHTML = `
                 <div class="data-summary-bar">
-                    <div>
-                        <span style="font-weight: 500; color: var(--text-main);">✦ ${firstMsg}</span>
-                        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">${timeStr} · ${msgCount} messages</div>
+                    <div style="min-width: 0; flex: 1;">
+                        <span style="font-weight: 500; color: var(--text-main);">
+                            ✦ ${escapeHtml(firstUserMessage)}
+                        </span>
+                        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">
+                            ${escapeHtml(timeStr)} · ${messages.length} messages
+                        </div>
                     </div>
-                    <span style="color: var(--text-secondary);">›</span>
+                    <button
+                        class="delete-conversation-btn"
+                        type="button"
+                        style="background: #ff4444; color: white; border: none; border-radius: 6px; padding: 7px 10px; cursor: pointer;"
+                    >
+                        Delete
+                    </button>
                 </div>
                 <div class="data-details">
                     ${messagesHtml}
                 </div>
             `;
 
-            // 아코디언 토글
+            // 대화 상세 열기/닫기
             const summaryBar = row.querySelector(".data-summary-bar");
-            summaryBar.addEventListener("click", () => {
+            summaryBar.addEventListener("click", (event) => {
+                if (event.target.closest(".delete-conversation-btn")) {
+                    return;
+                }
+
                 row.classList.toggle("active");
+            });
+
+            // 대화 기록 삭제
+            const deleteBtn = row.querySelector(".delete-conversation-btn");
+
+            deleteBtn.addEventListener("click", async (event) => {
+                event.stopPropagation();
+
+                if (!conversationId) {
+                    alert("대화 기록 ID를 찾을 수 없습니다.");
+                    return;
+                }
+
+                if (!confirm("이 대화 기록을 영구적으로 삭제하시겠습니까?")) {
+                    return;
+                }
+
+                deleteBtn.disabled = true;
+                deleteBtn.textContent = "Deleting...";
+
+                try {
+                    const deleteResponse = await fetch(
+                        `${API_BASE_URL}/api/conversations/${encodeURIComponent(conversationId)}`,
+                        { method: "DELETE" }
+                    );
+
+                    if (!deleteResponse.ok) {
+                        throw new Error("대화 기록 삭제에 실패했습니다.");
+                    }
+
+                    await loadConversations();
+                } catch (error) {
+                    console.error("대화 기록 삭제 실패:", error);
+                    alert("대화 기록을 삭제하지 못했습니다. 다시 시도해 주세요.");
+                    deleteBtn.disabled = false;
+                    deleteBtn.textContent = "Delete";
+                }
             });
 
             historyListContainer.appendChild(row);
         });
     } catch (error) {
         console.error("대화 기록 로드 실패:", error);
+        historyListContainer.innerHTML =
+            `<p style="color: var(--text-secondary);">대화 기록을 불러오지 못했습니다.</p>`;
     }
 }
 
+// HTML에 삽입할 텍스트의 특수문자 처리
+function escapeHtml(value) {
+    return String(value ?? "").replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+    })[char]);
+}
+
 // History 탭을 누를 때마다 목록 최신화
-document.querySelector('[data-target="history"]').addEventListener("click", () => {
-    loadConversations();
-});
+document.querySelector('[data-target="history"]')
+    .addEventListener("click", loadConversations);
