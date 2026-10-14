@@ -1,4 +1,5 @@
 # StockMate (NVDA AI Assistant) --- 최종 과제 보고서
+https://stockmate-delta.vercel.app/
 
 엔비디아(NVDA) 시계열 주가 데이터를 요약하고, 요약 정보를 OpenAI 시스템
 프롬프트에 주입해 데이터 기반 답변을 제공하는 AI 웹 서비스입니다.
